@@ -1,5 +1,7 @@
 #include "GameObject.h"
 #include "urInput.h"
+#include "EnemyTest.h"
+#include "Ur_Application.h"
 
 namespace ur {
 	GameObject::GameObject() {
@@ -24,6 +26,11 @@ namespace ur {
 		}
 		if (Input::GetKey(eKeyCode::Up)) {
 			mY -= speed * Time::DeltaTime();
+		}
+		if (Input::GetKey(eKeyCode::Space)) {
+			BulletTest* bul = new BulletTest();
+			bul->Initialize(mX + 45, mY - 50, 0, -800, 10, 50);
+			Application::AssignBullet(bul);
 		}
 	}
 	void GameObject::LateUpdate() {
@@ -80,8 +87,6 @@ namespace ur {
 		//SelectObject(mHdc, oldbrush);
 
 		//Rectangle(mHdc, 500, 500, 600, 600);
-
-		// 잔상을 해결해야 한다.
 	}
 }
 

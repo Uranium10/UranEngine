@@ -16,6 +16,7 @@ namespace ur {
 		void LateUpdate(); // 나중에 업데이트 되는 함수
 		void Run();
 		void Render(); // 뭔가를 그릴 때 사용
+		static void AssignBullet(BulletTest* bul);
 	private:
 		HWND mHwnd;	// 핸들
 		HDC mHdc;
@@ -37,6 +38,9 @@ namespace ur {
 		// 해상도 : 실제 작업 영역은 위의 메뉴바의 높이를 뺀 만큼이다.
 		UINT mWidth;
 		UINT mHeight;
+		
+		static std::vector<BulletTest*> mBullets;
+		std::vector<int> mBulletsDeleteIndexes;
 	};
 
 

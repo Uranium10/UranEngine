@@ -1,8 +1,10 @@
 #include "Ur_Application.h"
 #include "urInput.h"
+#include <algorithm>
 
 namespace ur {
 	// 기존에 쓰이는 다른 요소와 겹치지 않게 네임스페이스로 묶어줌 
+	std::vector<BulletTest*> Application::mBullets = {};
 	Application::Application()
 		: mHwnd(nullptr)
 		, mHdc(nullptr) 
@@ -10,7 +12,8 @@ namespace ur {
 		, mWidth(0)
 		, mHeight(0) 
 		, mBackHdc(nullptr) 
-		, mBackBuffer(nullptr){}
+		, mBackBuffer(nullptr)
+		, mBulletsDeleteIndexes{} {}
 	Application::~Application() {
 
 	}
@@ -61,7 +64,17 @@ namespace ur {
 
 		mPlayer.Update();
 		mEnemy.Update();
-
+		
+		for (size_t i = 0; i < mBullets.size(); i++)
+			if (mBullets[i]->CheckOutBound())
+				mBulletsDeleteIndexes.push_back(i);
+			else
+				mBullets[i]->Update();
+		for (int i = mBulletsDeleteIndexes.size() - 1; i >= 0; i--) {
+			delete mBullets[mBulletsDeleteIndexes[i]];
+			mBullets.erase(mBullets.begin() + mBulletsDeleteIndexes[i]);
+		}
+		mBulletsDeleteIndexes.clear();
 	}
 	void Application::LateUpdate() {
 
@@ -75,9 +88,16 @@ namespace ur {
 		Time::Render(mBackHdc);
 		mPlayer.Render(mBackHdc);
 		mEnemy.Render(mBackHdc);
+		std::for_each(mBullets.begin(), mBullets.end(),
+			[this](BulletTest* bul)->void {
+				bul->Render(mBackHdc);
+			});
 
 		// 앞, 뒤의 길이 인수를 조정하여 원본 화면이 옮겨지는 위치를 지정 가능
 		// 마지막 인수는 복사방법
 		BitBlt(mHdc, 0, 0, mWidth, mHeight, mBackHdc, 0, 0, SRCCOPY);
+	}
+	void Application::AssignBullet(BulletTest* bul) {
+		mBullets.push_back(bul);
 	}
 }
