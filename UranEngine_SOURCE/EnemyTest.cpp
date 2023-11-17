@@ -48,7 +48,7 @@ namespace ur {
 
 		SelectObject(mHdc, oldbrush);
 		DeleteObject(brush);
-		//
+		
 		SelectObject(mHdc, oldPen);
 	}
 }
