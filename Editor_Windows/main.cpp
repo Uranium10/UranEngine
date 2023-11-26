@@ -4,9 +4,13 @@
 #include "framework.h"
 #include "Editor_Windows.h"
 
-#include "..\\UranEngine_SOURCE\\Ur_Application.h"
+#include "..\\UranEngine_SOURCE\\urApplication.h"
+#include "..\\UranEngine_Window\\urLoadScene.h"
 
 ur::Application application;
+
+ULONG_PTR gpToken;
+Gdiplus::GdiplusStartupInput gpsi;
 
 #define MAX_LOADSTRING 100
 
@@ -91,7 +95,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, // 프로그램의 인스턴스 
 	//		DispatchMessage(&msg);
 	//	}
 	//}
-
+	Gdiplus::GdiplusShutdown(gpToken);
 	
 	return (int) msg.wParam;
 }
@@ -157,6 +161,10 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);	// 윈도우를 화면에 표시
    UpdateWindow(hWnd);
+
+   Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
+
+   ur::LoadScenes();
 
    return TRUE;
 }

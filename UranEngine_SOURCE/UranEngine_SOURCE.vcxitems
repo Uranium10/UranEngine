@@ -14,20 +14,41 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)BulletTest.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)commonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)EnemyTest.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)urComponent.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)urEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)urInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)urLayer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)urPlayer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)urResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)urResources.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)urScene.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)urSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)urSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)urTime.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Ur_Application.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)urApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)urTransform.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)urMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)urLnums.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Application.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)BulletTest.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)urApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)EnemyTest.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)urComponent.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)urEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)urInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)urLayer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)urPlayer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)urResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)urResources.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)urScene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)urSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)urSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)urTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)urTransform.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)urMath.cpp" />
   </ItemGroup>
 </Project>

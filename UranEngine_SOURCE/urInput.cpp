@@ -11,10 +11,6 @@ namespace ur {
 	}
 
 	void Input::Update() {
-		// 3가지 경우를 체크한다.
-
-		// 키가 눌렸는지 아닌지 : GetAsyncKeyState는 char를 체크한다. 하지만 우리는 Enum을 쓰는데,
-		// 이에 대응하기 위해 문자를 int 배열로 만들어 인덱스를 체크하면 Enum값에 대한 체크가 된다.
 		UpdateKeys();
 			
 	}
@@ -31,6 +27,9 @@ namespace ur {
 		}
 	}
 	void Input::UpdateKeys() {
+		// 3가지 경우를 체크한다.
+		// 키가 눌렸는지 아닌지 : GetAsyncKeyState는 char를 체크한다. 하지만 우리는 Enum을 쓰는데,
+		// 이에 대응하기 위해 문자를 int 배열로 만들어 인덱스를 체크하면 Enum값에 대한 체크가 된다.
 		std::for_each(mKeys.begin(), mKeys.end(),
 			[](Key& key) -> void {
 				UpdateKey(key);

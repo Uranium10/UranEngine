@@ -132,6 +132,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="urLoadScene.h" />
+    <ClInclude Include="urPlayScene.h" />
+    <ClInclude Include="urTitleScene.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="urPlayScene.cpp" />
+    <ClCompile Include="urTitleScene.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Update="C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urTransform.cpp">
+      <FileType>Document</FileType>
+    </ClCompile>
+    <ClCompile Update="C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urTransformcpp">
+      <FileType>Document</FileType>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

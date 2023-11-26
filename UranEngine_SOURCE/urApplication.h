@@ -3,7 +3,7 @@
 #include "commonInclude.h"
 #include "GameObject.h"
 #include "EnemyTest.h"
-#include "BulletTest.h"
+#include "urSceneManager.h"
 
 namespace ur {
 	class Application
@@ -16,10 +16,15 @@ namespace ur {
 		void LateUpdate(); // 나중에 업데이트 되는 함수
 		void Run();
 		void Render(); // 뭔가를 그릴 때 사용
-		static void AssignBullet(BulletTest* bul);
 	private:
 		HWND mHwnd;	// 핸들
 		HDC mHdc;
+
+		void clearRenderTarget();
+		void copyRenderTarget(HDC source, HDC dest);
+		void adjustWindowRect(HWND hwnd, UINT width, UINT height);
+		void createBuffer(UINT width, UINT height);
+		void initializeEtc();
 
 		// dc에 사용되는 '도화지'의 개념의 자료형이 HBITMAP이다.
 		// 지금까지 쓰던 기본 버퍼에 더해, 버퍼를 하나 더 만들어 더블 버퍼링을 사용
@@ -32,15 +37,11 @@ namespace ur {
 		float mSpeed;
 		//float mx;
 		//float my;
-		GameObject mPlayer;
-		EnemyTest mEnemy;
-		
 		// 해상도 : 실제 작업 영역은 위의 메뉴바의 높이를 뺀 만큼이다.
 		UINT mWidth;
 		UINT mHeight;
-		
-		static std::vector<BulletTest*> mBullets;
-		std::vector<int> mBulletsDeleteIndexes;
+
+		std::vector<GameObject*> mGameObjects;
 	};
 
 

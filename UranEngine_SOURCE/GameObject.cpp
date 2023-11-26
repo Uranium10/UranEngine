@@ -1,41 +1,32 @@
 #include "GameObject.h"
-#include "urInput.h"
 #include "EnemyTest.h"
-#include "Ur_Application.h"
 
 namespace ur {
 	GameObject::GameObject() {
 
 	}
 	GameObject::~GameObject() {
-
+		// 동적 할당된 것들을 지워주지 않으면 메모리누수
+		for (Component* comp : mComponents)
+			delete comp;
 	}
-	void GameObject::Update(){
-		const int speed = 100.0f;
+	void GameObject::Initialize() {
+	}
+	void GameObject::Update() {
 		// 키보드 입력을 받고(VK_LEFT는 그냥 숫자) 입력시 0x8000을 반환
 		// 이것을 함수로 묶어 단순화시켜야 한다
 		// 프레임속도도 고정시켜야 한다.
-		if (Input::GetKey(eKeyCode::Left)) {
-			mX -= speed * Time::DeltaTime();
-		}
-		if (Input::GetKey(eKeyCode::Right)) {
-			mX += speed * Time::DeltaTime();
-		}
-		if (Input::GetKey(eKeyCode::Down)) {
-			mY += speed * Time::DeltaTime();
-		}
-		if (Input::GetKey(eKeyCode::Up)) {
-			mY -= speed * Time::DeltaTime();
-		}
-		if (Input::GetKey(eKeyCode::Space)) {
-			BulletTest* bul = new BulletTest();
-			bul->Initialize(mX + 45, mY - 50, 0, -800, 10, 50);
-			Application::AssignBullet(bul);
-		}
+		for (Component* comp : mComponents)
+			comp->Update();
 	}
 	void GameObject::LateUpdate() {
+		for (Component* comp : mComponents)
+			comp->LateUpdate();
 	}
 	void GameObject::Render(HDC dc) {
+		for (Component* comp : mComponents)
+			comp->Render(dc);
+		/*
 		HDC mHdc = dc;
 		// 여기다가 그려준다
 		// WM_PAINT 이벤트때 최초 한 번만 그려졌던 때와는 다르게, 계속 호출됨
@@ -87,6 +78,7 @@ namespace ur {
 		//SelectObject(mHdc, oldbrush);
 
 		//Rectangle(mHdc, 500, 500, 600, 600);
+		*/
 	}
 }
 

@@ -39,7 +39,7 @@ namespace ur {
 		wchar_t str[50] = L"";
 
 		// time은 숫자이므로, 이를 문자열로 변환시켜야 한다.
-		swprintf_s(str, 50, L"Time : %d", (int)time);
+		swprintf_s(str, 50, L"FPS : %d", (int)fps);
 		// std::wcstout을 써도 되지만, 이는 어느 나라의 2바이트 문자열을 쓸 지 미리 정해줘야 해서 복잡함.
 		
 		// 위 문자열의 길이를 구해야 함(문자열, 최대 길이)
