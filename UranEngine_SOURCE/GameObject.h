@@ -1,6 +1,7 @@
 #pragma once
 #include "commonInclude.h"
 #include "urComponent.h"
+#include "urTransform.h"
 
 namespace ur {
 	class GameObject
@@ -13,6 +14,8 @@ namespace ur {
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
+
+		virtual void SetTexture(const std::wstring& tex);
 
 		template <typename T>
 		T* AddComponent() {
@@ -35,6 +38,7 @@ namespace ur {
 			return component;
 		}
 	private:
+		void addInitializeTransForm();
 		std::vector<Component*> mComponents;
 	};
 }

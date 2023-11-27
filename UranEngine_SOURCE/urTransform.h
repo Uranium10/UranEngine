@@ -6,6 +6,7 @@ namespace ur {
 	class Transform : public Component{
 	public:
 		Transform();
+		Transform(Vector2 pos);
 		~Transform();
 
 		void Initialize() override;

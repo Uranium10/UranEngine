@@ -17,7 +17,8 @@ namespace ur {
 		virtual void OnEnter();
 		virtual void OnExit();
 
-		void AddGameObject(GameObject* gameObj, const eLayerType type);
+		void AddGameObject(GameObject* gameObj, const enums::eLayerType type);
+		Layer* GetLayer(const enums::eLayerType type) { return mLayers[(UINT)type]; }
 		//자식 클래스에서 부모의 private 요소에 접근할 수 있게 하기 위해 만든 함수
 	private:
 		void CreateLayers();

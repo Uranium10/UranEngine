@@ -1,22 +1,20 @@
 #include "urTransform.h"
 
 namespace ur{
-	Transform::Transform()
-	{
+	Transform::Transform() {
+		mPosition = Vector2::ZERO;
 	}
-	Transform::~Transform()
-	{
+	Transform::Transform(Vector2 pos){
+		mPosition = pos;
 	}
-	void Transform::Initialize()
-	{
+	Transform::~Transform() {
 	}
-	void Transform::Update()
-	{
+	void Transform::Initialize() {
 	}
-	void Transform::LateUpdate()
-	{
+	void Transform::Update() {
 	}
-	void Transform::Render(HDC hdc)
-	{
+	void Transform::LateUpdate() {
+	}
+	void Transform::Render(HDC hdc) {
 	}
 }

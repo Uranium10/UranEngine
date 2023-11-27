@@ -5,6 +5,8 @@
 #include "urSpriteRenderer.h"
 #include "urInput.h"
 #include "urSceneManager.h"
+#include "urObject.h"
+#include "urBackground.h"
 
 namespace ur {
 	PlayScene::PlayScene(){
@@ -14,14 +16,8 @@ namespace ur {
 
 	}
 	void PlayScene::Initialize() {
-		mPlayer = new Player();
-		AddGameObject(mPlayer, eLayerType::Background);
-		Transform* tr = mPlayer->AddComponent<Transform>();
-		SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
-		tr->SetPos(Vector2(100, 100));
-		Player* pl2 = new Player();
-
-		sr->ImageLoad(L"C:\\Users\\kdm10\\source\\repos\\UranEngine\\Resources\\bgimage.png");
+		object::Instantiate<BackGround>(enums::eLayerType::Background, Vector2(0.0f, 0.0f));
+		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(100.0f, 100.0f));
 	}
 
 	void PlayScene::Update() {
@@ -44,6 +40,6 @@ namespace ur {
 	void PlayScene::OnEnter() {
 	}
 	void PlayScene::OnExit() {
-		mPlayer->GetComponent<Transform>()->SetPos(Vector2(0, 0));
+		//mPlayer->GetComponent<Transform>()->SetPos(Vector2(0, 0));
 	}
 }

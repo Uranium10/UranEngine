@@ -1,7 +1,9 @@
 #pragma once
 #include "urComponent.h"
+#include "urTexture.h"
 
 namespace ur {
+	using namespace math;
 	class SpriteRenderer : public Component {
 	public:
 		SpriteRenderer();
@@ -11,16 +13,12 @@ namespace ur {
 		void Update() override;
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
+		void SetTexture(graphics::Texture* texture) { mTexture = texture; }
 
-		void ImageLoad(const std::wstring& path);
+		//void SetSize(Vector2 size) { mSize = size; }
 	private:
-		BITMAP mBitmap;
-		HDC mhdc;
-
-		Gdiplus::Image* mImage;
-
-		UINT mWidth;
-		UINT mHeight;
+		graphics::Texture* mTexture;
+		Vector2 mSize;
 	};
 }
 

@@ -35,13 +35,23 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)urPlayer.cpp">
       <Filter>Contents</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)urResource.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)urResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)urLayer.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)urMath.cpp">
       <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)urBackground.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)urResource.cpp">
+      <Filter>ResourceManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)urResources.cpp">
+      <Filter>ResourceManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)urTexture.cpp">
+      <Filter>ResourceManagement\Texture</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -79,8 +89,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)urPlayer.h">
       <Filter>Contents</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)urResource.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)urResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)urLayer.h">
       <Filter>Scene</Filter>
     </ClInclude>
@@ -92,6 +100,21 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)urLnums.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)urObject.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)urBackground.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)urResource.h">
+      <Filter>ResourceManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)urResources.h">
+      <Filter>ResourceManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)urTexture.h">
+      <Filter>ResourceManagement\Texture</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -112,6 +135,12 @@
     </Filter>
     <Filter Include="Common">
       <UniqueIdentifier>{5263905b-bd19-4274-8545-41a1d5484f69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ResourceManagement">
+      <UniqueIdentifier>{e88f8299-7c22-47d8-ae45-57e893ef2e81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ResourceManagement\Texture">
+      <UniqueIdentifier>{e608085e-9d82-4f36-aade-1d7eca7da8e0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

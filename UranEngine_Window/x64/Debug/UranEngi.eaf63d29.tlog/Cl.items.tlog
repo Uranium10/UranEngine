@@ -1,6 +1,7 @@
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urApplication.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urApplication.obj
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\EnemyTest.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\EnemyTest.obj
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\GameObject.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\GameObject.obj
+C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urBackground.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urBackground.obj
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urComponent.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urComponent.obj
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urEntity.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urEntity.obj
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urInput.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urInput.obj
@@ -11,6 +12,7 @@ C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urResources.cpp;C:\User
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urScene.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urScene.obj
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urSceneManager.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urSceneManager.obj
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urSpriteRenderer.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urSpriteRenderer.obj
+C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urTexture.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urTexture.obj
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urTime.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urTime.obj
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urTransform.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urTransform.obj
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urMath.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urMath.obj

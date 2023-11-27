@@ -1,13 +1,12 @@
 #include "urSpriteRenderer.h"
 #include "GameObject.h"
 #include "urTransform.h"
+#include "urTexture.h"
 
 namespace ur {
-	SpriteRenderer::SpriteRenderer()
-		: mImage(nullptr)
-		, mWidth(0) 
-		, mHeight(0)
-	{
+	SpriteRenderer::SpriteRenderer() 
+		: mTexture(nullptr){
+		mSize = Vector2::ONE;
 	}
 	SpriteRenderer::~SpriteRenderer()
 	{
@@ -22,11 +21,27 @@ namespace ur {
 	{
 	}
 	void SpriteRenderer::Render(HDC hdc) {
+		// 텍스처 세팅하시오!
+		if (mTexture == nullptr)
+			assert(false);
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPos();
 
-		Gdiplus::Graphics graphics(hdc);
-		graphics.DrawImage(mImage, Gdiplus::Rect(tr->GetPos().x, tr->GetPos().y, mWidth, mHeight));
+		if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp) {
+			// hdc, 그려줄 좌표, 출력할 이미지의 크기, 
+			// 그려줄 이미지의 부분 시작좌표, 그려줄 이미지의 잘릴 크기, 투명화할 색깔(보통 마젠타)
+			TransparentBlt(hdc, pos.x, pos.y
+				, mTexture->GetWidth() * mSize.x, mTexture->GetHeight() * mSize.y
+				, mTexture->GetHdc(), 0, 0, mTexture->GetWidth(), mTexture->GetHeight()
+				, RGB(255, 0, 255));
+		}
+		else if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Png) {
+			Gdiplus::Graphics graphics(hdc);
+			graphics.DrawImage(mTexture->GetImage()
+				, Gdiplus::Rect(pos.x, pos.y, mTexture->GetWidth() * mSize.x, mTexture->GetHeight() * mSize.y));
+		}
+
+		
 
 		//HDC mHdc = hdc;
 		//// 여기다가 그려준다
@@ -81,10 +96,5 @@ namespace ur {
 		//SelectObject(mHdc, oldbrush);
 
 		//Rectangle(mHdc, 500, 500, 600, 600);
-	}
-	void SpriteRenderer::ImageLoad(const std::wstring& path) {
-		mImage = Gdiplus::Image::FromFile(path.c_str());
-		mWidth = mImage->GetWidth();
-		mHeight = mImage->GetHeight();
 	}
 }

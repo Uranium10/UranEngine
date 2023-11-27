@@ -6,13 +6,14 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="urLoadResources.h" />
+    <ClInclude Include="urTitleScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
     <ClInclude Include="urLoadScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="urPlayScene.h">
-      <Filter>Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="urTitleScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
   </ItemGroup>

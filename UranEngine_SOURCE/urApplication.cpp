@@ -86,6 +86,7 @@ namespace ur {
 
 		// 백버퍼를 가르킬 DC 생성
 		mBackHdc = CreateCompatibleDC(mHdc);
+		//백HDC와 백버퍼를 연결
 		HBITMAP oldBitmap = (HBITMAP)SelectObject(mBackHdc, mBackBuffer);
 		DeleteObject(oldBitmap);		// 기존의 흰색 비트맵을 지워줌
 	}

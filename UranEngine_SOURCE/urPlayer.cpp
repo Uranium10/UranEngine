@@ -6,6 +6,8 @@
 namespace ur {
 	Player::Player() : speed(250.0f) {
 		GameObject::GameObject();
+		GameObject::SetTexture(L"Player");
+
 	}
 	Player::~Player() {
 		GameObject::~GameObject();
@@ -20,13 +22,13 @@ namespace ur {
 		Vector2 d;
 		float delta = speed * Time::DeltaTime();
 		if (Input::GetKey(eKeyCode::Left))
-			d += math::LEFT;
+			d += Vector2::LEFT;
 		if (Input::GetKey(eKeyCode::Right))
-			d += math::RIGHT;
+			d += Vector2::RIGHT;
 		if (Input::GetKey(eKeyCode::Up))
-			d += math::UP;
+			d += Vector2::UP;
 		if (Input::GetKey(eKeyCode::Down))
-			d += math::DOWN;
+			d += Vector2::DOWN;
 		d *= delta;
 		tr->SetPos(tr->GetPos() + d);
 	}

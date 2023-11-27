@@ -1,9 +1,11 @@
 #include "GameObject.h"
 #include "EnemyTest.h"
+#include "urSpriteRenderer.h"
+#include "urResources.h"
 
 namespace ur {
 	GameObject::GameObject() {
-
+		addInitializeTransForm();
 	}
 	GameObject::~GameObject() {
 		// 동적 할당된 것들을 지워주지 않으면 메모리누수
@@ -79,6 +81,13 @@ namespace ur {
 
 		//Rectangle(mHdc, 500, 500, 600, 600);
 		*/
+	}
+	void GameObject::addInitializeTransForm() {
+		AddComponent<Transform>();
+	}
+	void GameObject::SetTexture(const std::wstring& tex) {
+		SpriteRenderer* sr = AddComponent<SpriteRenderer>();
+		sr->SetTexture(Resources::Find<graphics::Texture>(tex));
 	}
 }
 

@@ -9,30 +9,17 @@ namespace ur {
 		static Scene* CreateScene(const std::wstring& name) {
 			T* scene = new T();
 			scene->SetName(name);
+			mActiveScene = scene;
 			scene->Initialize();
 
 			// 트리에 씬 삽입
 			mScene.insert(std::make_pair(name, scene));
-
 			return scene;
 		}
 
 		// 포인터 반환을 하는 이유 : 확장성 고려(해당 씬을 받아서 써야할 경우가 있을 수 있음)
-		static Scene* LoadScene(const std::wstring& name) {
-			if (mActiveScene)
-				mActiveScene->OnExit();
-			std::map<std::wstring, Scene*>::iterator iter = mScene.find(name);
-			//auto iter = mScene.find(name);
-
-			// iterator는 포인터 주소를 받아옴. 해당 키에 대한 값이 없다면 end()를 반환
-			if (iter == mScene.end())
-				return nullptr;
-
-			// iterator의 first는 key값, second는 value값을 받아옴
-			mActiveScene = iter->second;
-			mActiveScene->OnEnter();
-			return iter->second;
-		}
+		static Scene* LoadScene(const std::wstring& name);
+		static Scene* GetActiveScene() { return mActiveScene; };
 
 		static void Initialize();
 		static void Update();

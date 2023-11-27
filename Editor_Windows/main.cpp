@@ -5,6 +5,7 @@
 #include "Editor_Windows.h"
 
 #include "..\\UranEngine_SOURCE\\urApplication.h"
+#include "..\\UranEngine_Window\\urLoadResources.h"
 #include "..\\UranEngine_Window\\urLoadScene.h"
 
 ur::Application application;
@@ -164,6 +165,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
+   ur::LoadResources();
    ur::LoadScenes();
 
    return TRUE;
