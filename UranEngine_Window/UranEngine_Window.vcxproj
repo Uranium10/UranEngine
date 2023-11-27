@@ -134,10 +134,12 @@
   <ItemGroup>
     <ClInclude Include="urLoadResources.h" />
     <ClInclude Include="urLoadScene.h" />
+    <ClInclude Include="urPlayerScript.h" />
     <ClInclude Include="urPlayScene.h" />
     <ClInclude Include="urTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="urPlayerScript.cpp" />
     <ClCompile Include="urPlayScene.cpp" />
     <ClCompile Include="urTitleScene.cpp" />
   </ItemGroup>

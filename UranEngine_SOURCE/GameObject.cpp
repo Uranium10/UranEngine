@@ -4,6 +4,7 @@
 
 namespace ur {
 	GameObject::GameObject() {
+		mComponents.resize((UINT)enums::eComponentType::End);
 		addInitializeTransForm();
 	}
 	GameObject::~GameObject() {
@@ -18,15 +19,18 @@ namespace ur {
 		// 이것을 함수로 묶어 단순화시켜야 한다
 		// 프레임속도도 고정시켜야 한다.
 		for (Component* comp : mComponents)
-			comp->Update();
+			if (comp)
+				comp->Update();
 	}
 	void GameObject::LateUpdate() {
 		for (Component* comp : mComponents)
-			comp->LateUpdate();
+			if (comp)
+				comp->LateUpdate();
 	}
 	void GameObject::Render(HDC dc) {
 		for (Component* comp : mComponents)
-			comp->Render(dc);
+			if (comp)
+				comp->Render(dc);
 		/*
 		HDC mHdc = dc;
 		// 여기다가 그려준다
@@ -85,7 +89,11 @@ namespace ur {
 		AddComponent<Transform>();
 	}
 	void GameObject::SetTexture(const std::wstring& tex) {
-		SpriteRenderer* sr = AddComponent<SpriteRenderer>();
+		SpriteRenderer* sr;
+		if (mComponents[(UINT)enums::eComponentType::SpriteRenderer] == nullptr)
+			sr = AddComponent<SpriteRenderer>();
+		else
+			sr = dynamic_cast<SpriteRenderer*>(mComponents[(UINT)enums::eComponentType::SpriteRenderer]);
 		sr->SetTexture(Resources::Find<graphics::Texture>(tex));
 	}
 }

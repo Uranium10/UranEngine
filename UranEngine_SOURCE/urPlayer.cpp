@@ -2,10 +2,15 @@
 #include "urInput.h"
 #include "urTransform.h"
 #include "urTime.h"
+#include "urSpriteRenderer.h"
+#include "..\\UranEngine_Window\\urPlayerScript.h"
 
 namespace ur {
-	Player::Player() : GameObject(), speed(250.0f) {
+	Player::Player() : GameObject() {
 		GameObject::SetTexture(L"Player");
+		GameObject::AddComponent<PlayerScript>();
+		GameObject::GetComponent<Transform>()->SetOffset(Vector2(250, 100));
+		GameObject::GetComponent<SpriteRenderer>()->SetSize(Vector2(2.0f, 1.0f));
 	}
 	Player::~Player() {
 		GameObject::~GameObject();
@@ -16,19 +21,6 @@ namespace ur {
 
 	void Player::Update() {
 		GameObject::Update();
-		Transform* tr = GetComponent<Transform>();
-		Vector2 d;
-		float delta = speed * Time::DeltaTime();
-		if (Input::GetKey(eKeyCode::Left))
-			d += Vector2::LEFT;
-		if (Input::GetKey(eKeyCode::Right))
-			d += Vector2::RIGHT;
-		if (Input::GetKey(eKeyCode::Up))
-			d += Vector2::UP;
-		if (Input::GetKey(eKeyCode::Down))
-			d += Vector2::DOWN;
-		d *= delta;
-		tr->SetPos(tr->GetPos() + d);
 	}
 
 	void Player::LateUpdate() {

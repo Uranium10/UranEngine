@@ -12,7 +12,6 @@ namespace ur {
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 	private:
-		float speed;
 	};
 }
 

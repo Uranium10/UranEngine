@@ -1,9 +1,9 @@
 #include "urTransform.h"
 
 namespace ur{
-	Transform::Transform() : Component(), mPosition(Vector2::ZERO) {
+	Transform::Transform() : Component(enums::eComponentType::Transform), mPosition(Vector2::ZERO), mOffset(Vector2::ZERO) {
 	}
-	Transform::Transform(Vector2 pos) : Component(), mPosition(pos) {
+	Transform::Transform(Vector2 pos) : Component(enums::eComponentType::Transform), mPosition(pos), mOffset(Vector2::ZERO) {
 	}
 	Transform::~Transform() {
 	}

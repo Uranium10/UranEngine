@@ -4,6 +4,9 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{94a76ab8-bb44-4d12-ae6f-1a58cac39515}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{537794e6-f183-4c1d-8517-1f3721b64e80}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="urLoadResources.h" />
@@ -16,6 +19,9 @@
     <ClInclude Include="urPlayScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="urPlayerScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="urPlayScene.cpp">
@@ -23,6 +29,9 @@
     </ClCompile>
     <ClCompile Include="urTitleScene.cpp">
       <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="urPlayerScript.cpp">
+      <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

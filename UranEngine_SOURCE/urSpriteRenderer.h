@@ -14,6 +14,7 @@ namespace ur {
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 		void SetTexture(graphics::Texture* texture) { mTexture = texture; }
+		void SetSize(Vector2 size) { mSize = size; }
 
 		//void SetSize(Vector2 size) { mSize = size; }
 	private:

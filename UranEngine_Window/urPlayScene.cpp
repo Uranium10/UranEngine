@@ -7,6 +7,9 @@
 #include "urSceneManager.h"
 #include "urObject.h"
 #include "urBackground.h"
+#include "urCamera.h"
+#include "urRenderer.h"
+#include "urPlayerScript.h"
 
 namespace ur {
 	PlayScene::PlayScene(){
@@ -16,8 +19,15 @@ namespace ur {
 
 	}
 	void PlayScene::Initialize() {
+		// main camera : 실제로 표시하지 않을 카메라용 오브젝트를 만든다.
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None);
+		Camera* cameraComp = camera->AddComponent<Camera>();
+		renderer::mainCamera = cameraComp;
+
 		object::Instantiate<BackGround>(enums::eLayerType::Background, Vector2(0.0f, 0.0f));
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(100.0f, 100.0f));
+
+		cameraComp->SetTarget(mPlayer);
 	}
 
 	void PlayScene::Update() {

@@ -16,8 +16,12 @@ namespace ur {
 
 		void SetPos(Vector2 pos) { mPosition = pos; }
 		Vector2 GetPos() { return mPosition; }
+		
+		void SetOffset(Vector2 pos) { mOffset = pos; }
+		Vector2 GetOffset() { return mOffset; }
 	private:
 		Vector2 mPosition;
+		Vector2 mOffset;
 	};
 }
 

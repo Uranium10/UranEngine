@@ -1,6 +1,13 @@
 #pragma once
 
 namespace ur::enums {
+	enum class eComponentType {
+		Script,
+		Transform,
+		SpriteRenderer,
+		Camera,
+		End,
+	};
 	enum class eLayerType {
 		None,
 		Background,

@@ -2,10 +2,11 @@
 #include "GameObject.h"
 #include "urTransform.h"
 #include "urTexture.h"
+#include "urRenderer.h"
 
 namespace ur {
 	SpriteRenderer::SpriteRenderer()
-		: Component()
+		: Component(enums::eComponentType::SpriteRenderer)
 		, mTexture(nullptr)
 		, mSize(Vector2::ONE) {
 	}
@@ -27,6 +28,7 @@ namespace ur {
 			assert(false);
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPos();
+		pos = renderer::mainCamera->CalculatePosition(pos);
 
 		if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp) {
 			// hdc, 그려줄 좌표, 출력할 이미지의 크기, 
