@@ -15,7 +15,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)commonInclude.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)EnemyTest.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)urBackground.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)urComponent.h" />
@@ -38,7 +37,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)urApplication.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)EnemyTest.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)urBackground.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)urComponent.cpp" />

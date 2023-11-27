@@ -1,8 +1,7 @@
 #include "urComponent.h"
 
 namespace ur {
-	Component::Component()
-	{
+	Component::Component() : mOwner(nullptr) {
 	}
 	Component::~Component()
 	{

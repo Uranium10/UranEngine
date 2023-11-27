@@ -4,9 +4,10 @@
 #include "urTexture.h"
 
 namespace ur {
-	SpriteRenderer::SpriteRenderer() 
-		: mTexture(nullptr){
-		mSize = Vector2::ONE;
+	SpriteRenderer::SpriteRenderer()
+		: Component()
+		, mTexture(nullptr)
+		, mSize(Vector2::ONE) {
 	}
 	SpriteRenderer::~SpriteRenderer()
 	{

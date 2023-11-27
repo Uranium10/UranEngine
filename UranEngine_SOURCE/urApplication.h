@@ -2,7 +2,6 @@
 
 #include "commonInclude.h"
 #include "GameObject.h"
-#include "EnemyTest.h"
 #include "urSceneManager.h"
 
 namespace ur {

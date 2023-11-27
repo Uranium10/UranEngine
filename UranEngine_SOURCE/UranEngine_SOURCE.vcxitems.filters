@@ -23,9 +23,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject.cpp">
       <Filter>Contents</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)EnemyTest.cpp">
-      <Filter>Contents</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)urTransform.cpp">
       <Filter>Component</Filter>
     </ClCompile>
@@ -75,9 +72,6 @@
       <Filter>Component</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject.h">
-      <Filter>Contents</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)EnemyTest.h">
       <Filter>Contents</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)urTransform.h">

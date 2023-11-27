@@ -1,11 +1,9 @@
 #include "urTransform.h"
 
 namespace ur{
-	Transform::Transform() {
-		mPosition = Vector2::ZERO;
+	Transform::Transform() : Component(), mPosition(Vector2::ZERO) {
 	}
-	Transform::Transform(Vector2 pos){
-		mPosition = pos;
+	Transform::Transform(Vector2 pos) : Component(), mPosition(pos) {
 	}
 	Transform::~Transform() {
 	}

@@ -4,10 +4,8 @@
 #include "urTime.h"
 
 namespace ur {
-	Player::Player() : speed(250.0f) {
-		GameObject::GameObject();
+	Player::Player() : GameObject(), speed(250.0f) {
 		GameObject::SetTexture(L"Player");
-
 	}
 	Player::~Player() {
 		GameObject::~GameObject();

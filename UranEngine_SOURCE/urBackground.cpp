@@ -1,8 +1,7 @@
 #include "urBackground.h"
 
 namespace ur {
-	BackGround::BackGround() {
-		GameObject::GameObject();
+	BackGround::BackGround() : GameObject() {
 		GameObject::SetTexture(L"BG");
 	}
 	BackGround::~BackGround() {
