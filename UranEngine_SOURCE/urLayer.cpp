@@ -5,11 +5,18 @@ namespace ur {
 
 	}
 	Layer::~Layer() {
-
+		for (GameObject* obj : mGameObjects) {
+			if (obj != nullptr)
+				delete obj;
+				obj = nullptr;
+			}
 	}
 	void Layer::Initialize(){
 	}
 	void Layer::Update() {
+		/*for (GameObject* obj : mGameObjects)
+			if (obj != nullptr)
+				obj->Update();*/
 		for (GameObject* obj : mGameObjects)
 			if (obj != nullptr)
 				obj->Update();

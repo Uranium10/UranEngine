@@ -1,10 +1,12 @@
 #include "urTransform.h"
 
 namespace ur{
-	Transform::Transform() : Component(enums::eComponentType::Transform), mPosition(Vector2::ZERO), mOffset(Vector2::ZERO) {
-	}
-	Transform::Transform(Vector2 pos) : Component(enums::eComponentType::Transform), mPosition(pos), mOffset(Vector2::ZERO) {
-	}
+	Transform::Transform(Vector2 pos)
+		: Component(enums::eComponentType::Transform)
+		, mPosition(pos)
+		, mOffset(Vector2::ZERO)
+		, mScale(Vector2::ONE)
+		, mRotation(0.0f) {}
 	Transform::~Transform() {
 	}
 	void Transform::Initialize() {

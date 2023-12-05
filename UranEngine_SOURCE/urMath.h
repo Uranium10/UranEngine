@@ -1,5 +1,5 @@
 #pragma once
-
+#include "commonInclude.h"
 namespace ur::math {
 	struct Vector2 {
 		static Vector2 ZERO;
@@ -23,7 +23,11 @@ namespace ur::math {
 		void operator*=(float num) { x *= num; y *= num; }
 		void operator/=(float num) { x /= num; y /= num; }
 		void operator=(const Vector2& vect) { x = vect.x; y = vect.y; }
+		void operator=(const POINT& point) { x = point.x; y = point.y; }
 		bool operator==(const Vector2& vect) { return (x == vect.x) && (y == vect.y); }
+		bool operator==(Vector2& vect) { return (x == vect.x) && (y == vect.y); }
+		bool operator!=(const Vector2& vect) { return (x != vect.x) || (y != vect.y); }
+		bool operator!=(Vector2& vect) { return (x != vect.x) || (y != vect.y); }
 
 	};
 }

@@ -7,7 +7,11 @@ namespace ur {
 		CreateLayers();
 	}
 	Scene::~Scene() {
-
+		for (Layer* lay : mLayers)
+			if (lay != nullptr) {
+				delete lay;
+				lay = nullptr;
+			}
 	}
 	void Scene::Initialize(){
 		for (Layer* lay : mLayers)

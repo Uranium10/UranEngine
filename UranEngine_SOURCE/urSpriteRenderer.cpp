@@ -28,20 +28,41 @@ namespace ur {
 			assert(false);
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPos();
+		Vector2 scale = tr->GetScale();
+		float rot = tr->GetRotation();
+		Vector2 os = tr->GetOffset();
+
 		pos = renderer::mainCamera->CalculatePosition(pos);
 
 		if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp) {
 			// hdc, 그려줄 좌표, 출력할 이미지의 크기, 
 			// 그려줄 이미지의 부분 시작좌표, 그려줄 이미지의 잘릴 크기, 투명화할 색깔(보통 마젠타)
-			TransparentBlt(hdc, pos.x, pos.y
-				, mTexture->GetWidth() * mSize.x, mTexture->GetHeight() * mSize.y
+			TransparentBlt(hdc, pos.x - os.x, pos.y - os.y
+				, mTexture->GetWidth() * mSize.x * scale.x, mTexture->GetHeight() * mSize.y * scale.y
 				, mTexture->GetHdc(), 0, 0, mTexture->GetWidth(), mTexture->GetHeight()
 				, RGB(255, 0, 255));
 		}
 		else if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Png) {
+			Gdiplus::ImageAttributes imgAtt = {};
+			// 투명화 시킬 픽셀의 색 범위
+			//imgAtt.SetColorKey(Gdiplus::Color(255, 0, 255), Gdiplus::Color(255, 0, 255));
+
 			Gdiplus::Graphics graphics(hdc);
 			graphics.DrawImage(mTexture->GetImage()
-				, Gdiplus::Rect(pos.x, pos.y, mTexture->GetWidth() * mSize.x, mTexture->GetHeight() * mSize.y));
+				, Gdiplus::Rect(
+					pos.x - os.x
+					, pos.y - os.y
+					, mTexture->GetWidth() * mSize.x * scale.x
+					, mTexture->GetHeight() * mSize.y * scale.y
+				)
+				, 0, 0
+				, mTexture->GetWidth(), mTexture->GetWidth()
+				, Gdiplus::UnitPixel	// 투명화 옵션
+				, nullptr/*&imgAtt*/
+			);
+			/*Gdiplus::Graphics graphics(hdc);
+			graphics.DrawImage(mTexture->GetImage()
+				, Gdiplus::Rect(pos.x, pos.y, mTexture->GetWidth() * mSize.x, mTexture->GetHeight() * mSize.y));*/
 		}
 
 		

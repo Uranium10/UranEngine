@@ -1,6 +1,7 @@
 #include "GameObject.h"
 #include "urSpriteRenderer.h"
 #include "urResources.h"
+#include "urAnimator.h"
 
 namespace ur {
 	GameObject::GameObject() {
@@ -9,8 +10,10 @@ namespace ur {
 	}
 	GameObject::~GameObject() {
 		// 동적 할당된 것들을 지워주지 않으면 메모리누수
-		for (Component* comp : mComponents)
+		for (Component* comp : mComponents) {
 			delete comp;
+			comp = nullptr;
+		}
 	}
 	void GameObject::Initialize() {
 	}
@@ -95,6 +98,14 @@ namespace ur {
 		else
 			sr = dynamic_cast<SpriteRenderer*>(mComponents[(UINT)enums::eComponentType::SpriteRenderer]);
 		sr->SetTexture(Resources::Find<graphics::Texture>(tex));
+	}
+	void GameObject::SetAnimation(const std::wstring& name, const std::wstring& tex, Vector2 leftTop, Vector2 size, Vector2 offset, UINT spriteLength, float duration)
+	{
+		graphics::Texture* texture = Resources::Find<graphics::Texture>(tex);
+		Animator* animator = GetComponent<Animator>();
+		if (animator == nullptr)
+			animator = AddComponent<Animator>();
+		animator->CreateAnimation(name, texture, leftTop, size, offset, spriteLength, duration);
 	}
 }
 

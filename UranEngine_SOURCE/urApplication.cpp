@@ -1,6 +1,7 @@
 #include "urApplication.h"
 #include "urInput.h"
 #include <algorithm>
+#include "urResources.h"
 
 namespace ur {
 	// 기존에 쓰이는 다른 요소와 겹치지 않게 네임스페이스로 묶어줌 
@@ -93,5 +94,9 @@ namespace ur {
 	void Application::initializeEtc() {
 		Input::Initialize();
 		Time::Initialize();
+	}
+	void Application::Release() {
+		Resources::Release();
+		SceneManager::Release();
 	}
 }

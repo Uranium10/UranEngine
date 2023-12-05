@@ -5,6 +5,7 @@ namespace ur::enums {
 		Script,
 		Transform,
 		SpriteRenderer,
+		Animator,
 		Camera,
 		End,
 	};
@@ -12,13 +13,16 @@ namespace ur::enums {
 		None,
 		Background,
 		// Tree, character..
+		Animal,
 		Player,
+		Particle,
 		Max = 16,
 	};
 
 	enum class eResourceType {
 		Texture,
 		AudioClip,
+		Animation,
 		Prefab,
 		End,
 	};

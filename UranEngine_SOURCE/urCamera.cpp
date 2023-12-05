@@ -2,12 +2,15 @@
 #include "urTransform.h"
 #include "GameObject.h"
 
+extern float wWidth;
+extern float wHeight;
+
 namespace ur {
 	Camera::Camera() 
 		: Component(enums::eComponentType::Camera)
 		, mDistance(Vector2::ONE)
 		, mLookPosition(Vector2::ZERO)
-		, mResolution(Vector2(1600.0f, 900.0f))
+		, mResolution(Vector2(wWidth, wHeight))
 		, mTarget(nullptr) {
 	}
 	Camera::~Camera() {	}

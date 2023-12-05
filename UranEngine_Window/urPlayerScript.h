@@ -5,6 +5,14 @@ namespace ur {
 	class PlayerScript : public Script
 	{
 	public:
+		enum class eState
+		{
+			Idle,
+			Walk,
+			Sleep,
+			Attack,
+			Transition,
+		};
 		PlayerScript();
 		~PlayerScript();
 
@@ -12,7 +20,14 @@ namespace ur {
 		void Update() override;
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
+		void CreateCat();
 	private:
+		eState mState;
+		class Animator* mAnimator;
 
+		void Idle();
+		void move();
+		void transition();
+		void grooming();
 	};
 }

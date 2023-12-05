@@ -25,6 +25,7 @@ namespace ur {
 		static void Update();
 		static void LateUpdate();
 		static void Render(HDC hdc);
+		static void Release();
 	private:
 		// map 의 인자는 두 개 들어감<key, value>
 		static std::map<std::wstring, Scene*> mScene;

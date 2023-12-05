@@ -1,6 +1,7 @@
 #pragma once
 #include "commonInclude.h"
 
+using namespace ur::math;
 namespace ur {
 	class Entity {
 	public:

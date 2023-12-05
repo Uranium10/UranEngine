@@ -6,7 +6,6 @@ namespace ur {
 	Scene* SceneManager::mActiveScene = nullptr;
 
 	void SceneManager::Initialize() {
-
 	}
 	void SceneManager::Update() {
 		mActiveScene->Update();
@@ -31,5 +30,11 @@ namespace ur {
 		mActiveScene = iter->second;
 		mActiveScene->OnEnter();
 		return iter->second;
+	}
+	void SceneManager::Release() {
+		for (auto iter : mScene) {
+			delete iter.second;
+			iter.second = nullptr;
+		}
 	}
 }

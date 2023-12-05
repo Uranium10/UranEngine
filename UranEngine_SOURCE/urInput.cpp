@@ -1,17 +1,47 @@
 #include "urInput.h"
 #include <algorithm>
+#include "urApplication.h"
 
+extern ur::Application application;
 namespace ur {
 	std::vector<Input::Key> Input::mKeys = {};
+	Vector2 Input::mVector = Vector2::ZERO;
+	Vector2 Input::mMousePosition = Vector2::ZERO;
+	bool Input::mbChanged = false;
 	int ASCII[(UINT)eKeyCode::End] = {
-		'Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M', VK_LEFT, VK_RIGHT, VK_DOWN, VK_UP, VK_SPACE
+		'Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'
+		, VK_LEFT, VK_RIGHT, VK_DOWN, VK_UP, VK_SPACE, VK_LBUTTON, VK_MBUTTON, VK_RBUTTON,
 	};
+	void Input::GetMousePositionByWindow()
+	{
+		POINT mousePos = {};
+		//LP가 붙는 자료형은, 해당 자료형의 포인터를 의미
+		GetCursorPos(&mousePos);
+		ScreenToClient(application.GetHwnd(), &mousePos);
+		mMousePosition = mousePos;
+	}
 	void Input::Initialize() {
 		CreateKeys();
 	}
 
 	void Input::Update() {
 		UpdateKeys();
+		Vector2 dir = Vector2::ZERO;
+		if (IsKeyDown(eKeyCode::Down))
+			dir.y += 1;
+		if (IsKeyDown(eKeyCode::Up))
+			dir.y -= 1;
+		if (IsKeyDown(eKeyCode::Left))
+			dir.x -= 1;
+		if (IsKeyDown(eKeyCode::Right))
+			dir.x += 1;
+		if (dir != mVector) {
+			mbChanged = true;
+			mVector = dir;
+		}
+		else
+			mbChanged = false;
+
 			
 	}
 	void Input::CreateKeys() {
@@ -36,10 +66,16 @@ namespace ur {
 			});
 	}
 	void Input::UpdateKey(Key& key) {
+		if (!GetFocus()) {
+			ClearKeys();
+			return;
+		}
 		if (IsKeyDown(key.keyCode))
 			UpdateKeyDown(key);
 		else
 			UpdateKeyUp(key);
+
+		GetMousePositionByWindow();
 	}
 	bool Input::IsKeyDown(eKeyCode code) {
 		return GetAsyncKeyState(ASCII[(UINT)code]);
@@ -57,5 +93,16 @@ namespace ur {
 		else									// 이전, 지금 모두 안눌려있음 - none
 			key.state = eKeyState::None;
 		key.bPressed = false;
+	}
+	void Input::ClearKeys()
+	{
+		for (Key& key : mKeys) {
+			if (key.state == eKeyState::Down || key.state == eKeyState::Pressed)
+				key.state = eKeyState::Up;
+			else if (key.state == eKeyState::Up)
+				key.state = eKeyState::None;
+			key.bPressed = false;
+		}
+
 	}
 }

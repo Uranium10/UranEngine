@@ -6,6 +6,7 @@
 #include "urTime.h"
 #include <string>
 #include <map>
+#include <functional>
 #include "urMath.h"
 
 #include <mmsystem.h>

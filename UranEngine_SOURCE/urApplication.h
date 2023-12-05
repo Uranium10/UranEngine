@@ -15,8 +15,10 @@ namespace ur {
 		void LateUpdate(); // 나중에 업데이트 되는 함수
 		void Run();
 		void Render(); // 뭔가를 그릴 때 사용
+		void Release();
 
 		HDC GetHdc() { return mHdc; }
+		HWND GetHwnd() { return mHwnd; }
 	private:
 		HWND mHwnd;	// 핸들
 		HDC mHdc;

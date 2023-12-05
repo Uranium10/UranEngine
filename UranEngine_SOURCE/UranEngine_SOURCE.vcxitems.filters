@@ -36,13 +36,13 @@
       <Filter>Contents</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)urResource.cpp">
-      <Filter>ResourceManagement</Filter>
+      <Filter>Resource Management</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)urResources.cpp">
-      <Filter>ResourceManagement</Filter>
+      <Filter>Resource Management</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)urTexture.cpp">
-      <Filter>ResourceManagement\Texture</Filter>
+      <Filter>Resource Management\Texture</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)urScript.cpp">
       <Filter>Component\Script</Filter>
@@ -58,6 +58,15 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)urRenderer.cpp">
       <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)urAnimator.cpp">
+      <Filter>Component\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)urAnimation.cpp">
+      <Filter>Resource Management\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)urCat.cpp">
+      <Filter>Contents</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -105,13 +114,13 @@
       <Filter>Contents</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)urResource.h">
-      <Filter>ResourceManagement</Filter>
+      <Filter>Resource Management</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)urResources.h">
-      <Filter>ResourceManagement</Filter>
+      <Filter>Resource Management</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)urTexture.h">
-      <Filter>ResourceManagement\Texture</Filter>
+      <Filter>Resource Management\Texture</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)urScript.h">
       <Filter>Component\Script</Filter>
@@ -127,6 +136,15 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)urRenderer.h">
       <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)urAnimator.h">
+      <Filter>Component\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)urAnimation.h">
+      <Filter>Resource Management\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)urCat.h">
+      <Filter>Contents</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -148,12 +166,6 @@
     <Filter Include="Common">
       <UniqueIdentifier>{5263905b-bd19-4274-8545-41a1d5484f69}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ResourceManagement">
-      <UniqueIdentifier>{e88f8299-7c22-47d8-ae45-57e893ef2e81}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ResourceManagement\Texture">
-      <UniqueIdentifier>{e608085e-9d82-4f36-aade-1d7eca7da8e0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Component\Script">
       <UniqueIdentifier>{f79961fd-1a72-4bca-a218-655cae68dfa9}</UniqueIdentifier>
     </Filter>
@@ -165,6 +177,18 @@
     </Filter>
     <Filter Include="Component\Camera">
       <UniqueIdentifier>{94982aff-f3e9-49f1-a10a-5be28f80b9d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Animator">
+      <UniqueIdentifier>{3c7bb011-66b8-4342-b422-338e6ee19d45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Management">
+      <UniqueIdentifier>{e88f8299-7c22-47d8-ae45-57e893ef2e81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Management\Texture">
+      <UniqueIdentifier>{e608085e-9d82-4f36-aade-1d7eca7da8e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Management\Animation">
+      <UniqueIdentifier>{289aaaa4-f50d-467c-bd8f-32de1a731ff5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

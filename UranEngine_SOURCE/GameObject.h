@@ -16,7 +16,13 @@ namespace ur {
 		virtual void Render(HDC hdc);
 
 		virtual void SetTexture(const std::wstring& tex);
-
+		virtual void SetAnimation(const std::wstring& name
+			, const std::wstring& tex
+			, Vector2 leftTop
+			, Vector2 size
+			, Vector2 offset
+			, UINT spriteLength
+			, float duration);
 		template <typename T>
 		T* AddComponent() {
 			T* comp = new T();

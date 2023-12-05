@@ -1,7 +1,8 @@
 #pragma once
-
 #include "commonInclude.h"
+
 namespace ur {
+	using namespace math;
 	enum class eKeyState {
 		Down,
 		Pressed,
@@ -14,6 +15,7 @@ namespace ur {
 		A,S,D,F,G,H,J,K,L,
 		Z,X,C,V,B,N,M,
 		Left, Right, Down, Up, Space,
+		LButton, MButton, RButton,
 		End,
 	};
 	class Input
@@ -32,6 +34,11 @@ namespace ur {
 		static bool GetKeyUp(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Up; }
 		static bool GetKey(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Pressed; }
 
+		static Vector2 GetVector() { return mVector; }
+		static bool GetChanged() { return mbChanged; }
+		static Vector2 GetMousePosition() { return mMousePosition; }
+		static void GetMousePositionByWindow();
+
 		static void Initialize();
 		// 매 프레임마다 키보드 상태를 전부 체크해줘야함
 		static void Update();
@@ -46,6 +53,10 @@ namespace ur {
 		static bool IsKeyDown(eKeyCode code);
 		static void UpdateKeyDown(Key& key);
 		static void UpdateKeyUp(Key& key);
+		static void ClearKeys();
+		static Vector2 mVector;
+		static bool mbChanged;
+		static Vector2 mMousePosition;
 
 		// 키처리는 전역으로 해야 하기 때문에 static을 붙여 정적변수로 선언
 		// 캡슐화를 지키기 위해 - 데이터를 외부에서 접근시키지 않기 위해 전역 영역에 선언하지는 않는다.

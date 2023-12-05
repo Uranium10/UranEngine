@@ -9,6 +9,7 @@
 #include "..\\UranEngine_Window\\urLoadScene.h"
 
 ur::Application application;
+float wWidth = 1600, wHeight = 900;
 
 ULONG_PTR gpToken;
 Gdiplus::GdiplusStartupInput gpsi;
@@ -37,6 +38,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, // 프로그램의 인스턴스 
 	UNREFERENCED_PARAMETER(hPrevInstance);
 	UNREFERENCED_PARAMETER(lpCmdLine);
 
+	//_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+	//_CrtSetBreakAlloc(254);
 	// TODO: 여기에 코드를 입력합니다.
 
 	// 전역 문자열을 초기화합니다.
@@ -97,7 +100,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, // 프로그램의 인스턴스 
 	//	}
 	//}
 	Gdiplus::GdiplusShutdown(gpToken);
-	
+	application.Release();
 	return (int) msg.wParam;
 }
 
@@ -143,16 +146,15 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   const UINT width = 1600, height = 900;
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-	  CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);
+	  CW_USEDEFAULT, 0, wWidth, wHeight, nullptr, nullptr, hInstance, nullptr);
    // 윈도우 생성 - 핸들 반환
    // CreateWindowW 함수에서 szWindowClass에 들어간 이름을 사용하는 윈도우가 생성됨(메모리에 올라감)
    // WS_OVERLAPPEDWINDOW : 창이 뜨는 형태
    // CW_USEDEFAULT, 0, CW_USEDEFAULT, 0 : 처음 두 숫자는 시작 좌표, 나중 두 숫자는 크기(x, y, width, height)
    // hWnd에는 생성된 윈도우의 핸들이 반환됨
 
-   application.Initialize(hWnd, width, height);
+   application.Initialize(hWnd, wWidth, wHeight);
    // 핸들은 포인터이므로 복사되지 않는다.
 
    if (!hWnd)
@@ -164,6 +166,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    UpdateWindow(hWnd);
 
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
+	
+   int a = 0;
+   srand((UINT)(&a));
 
    ur::LoadResources();
    ur::LoadScenes();
@@ -250,3 +255,4 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 	}
 	return (INT_PTR)FALSE;
 }
+

@@ -18,6 +18,7 @@ namespace ur {
 		void Render(HDC hdc) override;
 
 		void SetTarget(GameObject* target) { mTarget = target; }
+		void SetResolution(Vector2 res) { mResolution = res; }
 	private:
 		// 모든 게임 오브젝트들을 밀어주기 위한 배열
 		//std::vector<GameObject*> mGameObjects;
