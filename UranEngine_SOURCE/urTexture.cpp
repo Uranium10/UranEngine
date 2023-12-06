@@ -29,6 +29,11 @@ namespace ur::graphics {
 			GetObject(mBitmap, sizeof(BITMAP), &info);
 			mWidth = info.bmWidth;
 			mHeight = info.bmHeight;
+
+			if (info.bmBitsPixel == 32)
+				mbAlpha = true;
+			else if (info.bmBitsPixel == 24)
+				mbAlpha = false;
 			
 			// 비트맵 값을 화면에 출력해줄 DC가 필요
 			HDC mainDC = application.GetHdc();

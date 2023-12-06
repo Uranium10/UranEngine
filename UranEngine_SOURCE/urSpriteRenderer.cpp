@@ -36,12 +36,25 @@ namespace ur {
 		pos = renderer::mainCamera->CalculatePosition(pos);
 
 		if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp) {
-			// hdc, 그려줄 좌표, 출력할 이미지의 크기, 
-			// 그려줄 이미지의 부분 시작좌표, 그려줄 이미지의 잘릴 크기, 투명화할 색깔(보통 마젠타)
-			TransparentBlt(hdc, pos.x - os.x, pos.y - os.y
-				, mTexture->GetWidth() * mSize.x * scale.x, mTexture->GetHeight() * mSize.y * scale.y
-				, mTexture->GetHdc(), 0, 0, mTexture->GetWidth(), mTexture->GetHeight()
-				, RGB(255, 0, 255));
+			if (mTexture->IsAlpha()) {
+				BLENDFUNCTION func = {};
+				func.BlendOp = AC_SRC_OVER;
+				func.BlendFlags = 0;
+				func.AlphaFormat = AC_SRC_ALPHA;
+				func.SourceConstantAlpha = 255; // 0(transparent) ~ 255(Opaque)
+				// hdc, 그려줄 좌표, 출력할 이미지의 크기, 
+				// 그려줄 이미지의 부분 시작좌표, 그려줄 이미지의 잘릴 크기, 투명화할 색깔(보통 마젠타)
+				AlphaBlend(hdc, pos.x - os.x, pos.y - os.y
+					, mView.x * mSize.x * scale.x, mView.y * mSize.y * scale.y
+					, mTexture->GetHdc(), mLeftTop.x, mLeftTop.y, mView.x, mView.y
+					, func);
+			}
+			else {
+				TransparentBlt(hdc, pos.x - os.x, pos.y - os.y
+					, mView.x * mSize.x * scale.x, mView.y * mSize.y * scale.y
+					, mTexture->GetHdc(), mLeftTop.x, mLeftTop.y, mView.x, mView.y
+					, RGB(255, 0, 255));
+			}
 		}
 		else if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Png) {
 			Gdiplus::ImageAttributes imgAtt = {};

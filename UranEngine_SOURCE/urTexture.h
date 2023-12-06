@@ -20,6 +20,7 @@ namespace ur::graphics {
 		HDC GetHdc() { return mHdc; }
 		eTextureType GetTextureType() { return mType; }
 		Gdiplus::Image* GetImage() { return mImage; }
+		bool IsAlpha() { return mbAlpha; }
 	private:
 		eTextureType mType;
 		//BMP
@@ -31,5 +32,7 @@ namespace ur::graphics {
 		Gdiplus::Image* mImage;
 		UINT mWidth;
 		UINT mHeight;
+
+		bool mbAlpha;
 	};
 }
