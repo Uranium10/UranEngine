@@ -1,6 +1,8 @@
 #pragma once
 #include "commonInclude.h"
+
 namespace ur::math {
+#define PI 3.141592f
 	struct Vector2 {
 		static Vector2 ZERO;
 		static Vector2 ONE;
@@ -29,6 +31,24 @@ namespace ur::math {
 		bool operator!=(const Vector2& vect) { return (x != vect.x) || (y != vect.y); }
 		bool operator!=(Vector2& vect) { return (x != vect.x) || (y != vect.y); }
 
+		void Clear() { x = 0.0f; y = 0.0f; }
+		float Distance() { return sqrtf(x * x + y * y); }
+		Vector2 Normalize() {
+			float dist = Distance();
+			x /= dist;
+			y /= dist;
+			return *this;
+		}
+		static float Dot(Vector2& v1, Vector2& v2) { return v1.x * v2.x + v1.y * v2.y; }
+		// 2차원 가위곱은 그 크기만 제공
+		static float Cross(Vector2& v1, Vector2& v2) { return v1.x * v2.y - v1.y * v2.x; }
+		static Vector2 Rotate(Vector2& vector, float degree) {
+			float rad = (degree / 180.0f) * PI;
+			vector.Normalize();
+			float x = cosf(rad) * vector.x - sinf(rad) * vector.y;
+			float y = sinf(rad) * vector.x + cosf(rad) * vector.y;
+			return Vector2(x, y);
+		}
 	};
 }
 

@@ -8,8 +8,9 @@ namespace ur {
 	SpriteRenderer::SpriteRenderer()
 		: Component(enums::eComponentType::SpriteRenderer)
 		, mTexture(nullptr)
-		, mSize(Vector2::ONE) {
-	}
+		, mSize(Vector2::ONE)
+		, mLeftTop(Vector2::ZERO)
+		, mView(Vector2::ZERO) {}
 	SpriteRenderer::~SpriteRenderer()
 	{
 	}
@@ -45,20 +46,19 @@ namespace ur {
 		else if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Png) {
 			Gdiplus::ImageAttributes imgAtt = {};
 			// 투명화 시킬 픽셀의 색 범위
-			//imgAtt.SetColorKey(Gdiplus::Color(255, 0, 255), Gdiplus::Color(255, 0, 255));
-
+			imgAtt.SetColorKey(Gdiplus::Color(255, 0, 255), Gdiplus::Color(255, 0, 255));
 			Gdiplus::Graphics graphics(hdc);
 			graphics.DrawImage(mTexture->GetImage()
 				, Gdiplus::Rect(
 					pos.x - os.x
 					, pos.y - os.y
-					, mTexture->GetWidth() * mSize.x * scale.x
-					, mTexture->GetHeight() * mSize.y * scale.y
+					, mView.x * mSize.x * scale.x
+					, mView.y * mSize.y * scale.y
 				)
-				, 0, 0
-				, mTexture->GetWidth(), mTexture->GetWidth()
+				, mLeftTop.x, mLeftTop.y
+				, mView.x, mView.y
 				, Gdiplus::UnitPixel	// 투명화 옵션
-				, nullptr/*&imgAtt*/
+				, &imgAtt
 			);
 			/*Gdiplus::Graphics graphics(hdc);
 			graphics.DrawImage(mTexture->GetImage()
