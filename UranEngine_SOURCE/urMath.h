@@ -3,6 +3,12 @@
 
 namespace ur::math {
 #define PI 3.141592f
+	static float DegToRad(float deg) {
+		return deg / 180 * PI;
+	}
+	static float RadToDeg(int rad) {
+		return rad * 180 / PI;
+	}
 	struct Vector2 {
 		static Vector2 ZERO;
 		static Vector2 ONE;
@@ -35,19 +41,22 @@ namespace ur::math {
 		float Distance() { return sqrtf(x * x + y * y); }
 		Vector2 Normalize() {
 			float dist = Distance();
-			x /= dist;
-			y /= dist;
-			return *this;
+			return Vector2(x / dist, y / dist);
 		}
 		static float Dot(Vector2& v1, Vector2& v2) { return v1.x * v2.x + v1.y * v2.y; }
 		// 2차원 가위곱은 그 크기만 제공
 		static float Cross(Vector2& v1, Vector2& v2) { return v1.x * v2.y - v1.y * v2.x; }
 		static Vector2 Rotate(Vector2& vector, float degree) {
 			float rad = (degree / 180.0f) * PI;
-			vector.Normalize();
-			float x = cosf(rad) * vector.x - sinf(rad) * vector.y;
-			float y = sinf(rad) * vector.x + cosf(rad) * vector.y;
+			Vector2 v = vector.Normalize();
+			float x = cosf(rad) * v.x - sinf(rad) * v.y;
+			float y = sinf(rad) * v.x + cosf(rad) * v.y;
 			return Vector2(x, y);
+		}
+		static float AngleBetween(Vector2& v1, Vector2& v2) {
+			Vector2 vv1 = v1.Normalize();
+			Vector2 vv2 = v2.Normalize();
+			return acosf(Dot(vv1, vv2));
 		}
 	};
 }

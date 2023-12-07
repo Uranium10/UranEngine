@@ -5,6 +5,7 @@
 #include "urSpriteRenderer.h"
 #include "..\\UranEngine_Window\\urPlayerScript.h"
 #include "urAnimator.h"
+#include "urResources.h"
 
 namespace ur {
 	Player::Player() : GameObject() {
@@ -22,7 +23,14 @@ namespace ur {
 		// 다른 클래스의 멤버 함수에는 해당 객체의 주소가 암시적으로 넘겨진다.
 		// 따라서 다른 곳에서 호출 시 해당 객체를 넘겨줘야 한다.
 		am->GetCompleteEvent(L"Grooming") = std::bind(&PlayerScript::CreateCat, ps);
-		int a = 0;
+		Animator* pa = new Animator(enums::eComponentType::PartAnimator);
+		graphics::Texture* texture = Resources::Find<graphics::Texture>(L"Ml");
+		pa->CreateAnimation(L"Idle", texture, Vector2(0.0f, 0.0f), Vector2(64.0f, 64.0f), Vector2::DOWN * 100, 1, 0.1f);
+		graphics::Texture* texture2 = Resources::Find<graphics::Texture>(L"Mlr");
+		pa->CreateAnimation(L"Run", texture2, Vector2(0.0f, 0.0f), Vector2(64.0f, 64.0f), Vector2::DOWN * 100, 12, 0.05f);
+		pa->PlayAnimation(L"Idle");
+		AddComponentByParam(enums::eComponentType::PartAnimator, pa);
+		int a = 1;
 		
 	}
 	Player::~Player() {

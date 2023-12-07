@@ -5,6 +5,7 @@ namespace ur::enums {
 		Script,
 		Transform,
 		SpriteRenderer,
+		PartAnimator,
 		Animator,
 		Camera,
 		End,

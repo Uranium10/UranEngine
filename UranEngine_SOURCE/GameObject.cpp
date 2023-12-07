@@ -108,4 +108,3 @@ namespace ur {
 		animator->CreateAnimation(name, texture, leftTop, size, offset, spriteLength, duration);
 	}
 }
-

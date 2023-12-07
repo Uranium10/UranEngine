@@ -9,12 +9,13 @@
 #include "urObject.h"
 
 namespace ur {
-	PlayerScript::PlayerScript() :Script(), mState(eState::Idle), mAnimator(nullptr) {
+	PlayerScript::PlayerScript() :Script(), mState(eState::Idle), mAnimator(nullptr), mPart(nullptr) {
 	}
 	PlayerScript::~PlayerScript(){ }
 	void PlayerScript::Initialize(){ }
 	void PlayerScript::Update() {
 		mAnimator = GetOwner()->GetComponent<Animator>();
+		mPart = GetOwner()->GetComponentByType<Animator>(enums::eComponentType::PartAnimator);
 		if (!mAnimator)
 			return;
 		switch (mState)
@@ -52,18 +53,22 @@ namespace ur {
 	void PlayerScript::Idle() {
 		if (Input::GetKey(eKeyCode::Left)) {
 			mAnimator->PlayAnimation(L"LeftWalk");
+			mPart->PlayAnimation(L"Run");
 			mState = eState::Walk;
 		}
 		if (Input::GetKey(eKeyCode::Right)) {
 			mAnimator->PlayAnimation(L"RightWalk");
+			mPart->PlayAnimation(L"Run");
 			mState = eState::Walk;
 		}
 		if (Input::GetKey(eKeyCode::Up)) {
 			mAnimator->PlayAnimation(L"UpWalk");
+			mPart->PlayAnimation(L"Run");
 			mState = eState::Walk;
 		}
 		if (Input::GetKey(eKeyCode::Down)) {
 			mAnimator->PlayAnimation(L"DownWalk");
+			mPart->PlayAnimation(L"Run");
 			mState = eState::Walk;
 		}
 		if (Input::GetKey(eKeyCode::Space)) {
@@ -90,14 +95,18 @@ namespace ur {
 	}
 	void PlayerScript::transition() {
 		mState = eState::Idle;
-		if (Input::GetVector() == Vector2::ZERO)
+		if (Input::GetVector() == Vector2::ZERO) {
 			mAnimator->PlayAnimation(L"Idle", false);
+
+			mPart->PlayAnimation(L"Idle");
+		}
 		else
 			Idle();
 	}
 	void PlayerScript::grooming() {
 		if (mAnimator->IsCompleteAnimation()) {
 			mAnimator->PlayAnimation(L"Idle", false);
+			mPart->PlayAnimation(L"Idle");
 			mState = eState::Idle;
 		}
 	}

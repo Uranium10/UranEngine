@@ -21,7 +21,7 @@ namespace ur {
 			Event completeEvent;
 			Event endEvent;
 		};
-		Animator();
+		Animator(enums::eComponentType type = enums::eComponentType::Animator);
 		~Animator ();
 
 		void Initialize() override;

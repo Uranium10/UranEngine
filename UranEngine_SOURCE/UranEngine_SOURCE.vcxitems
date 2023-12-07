@@ -21,6 +21,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)urBackground.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)urCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)urCat.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)urCollider.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)urComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)urEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)urInput.h" />
@@ -49,6 +50,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)urBackground.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)urCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)urCat.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)urCollider.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)urComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)urEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)urInput.cpp" />
