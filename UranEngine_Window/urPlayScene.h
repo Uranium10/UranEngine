@@ -1,5 +1,6 @@
 #pragma once
 #include "..\\UranEngine_SOURCE\\urScene.h"
+#include "..\\UranEngine_SOURCE\\urBackground.h"
 
 namespace ur {
 	class Player;
@@ -18,5 +19,6 @@ namespace ur {
 		void OnExit() override;
 	private:
 		Player* mPlayer;
+		BackGround* mBg;
 	};
 }

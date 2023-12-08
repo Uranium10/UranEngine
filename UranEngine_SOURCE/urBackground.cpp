@@ -4,7 +4,9 @@
 namespace ur {
 	BackGround::BackGround() : GameObject() {
 		GameObject::SetTexture(L"BG");
-		GameObject::GetComponent<SpriteRenderer>()->SetView(Vector2(2, 2), Vector2(2888, 273));
+
+		SpriteRenderer* sr = GameObject::GetComponent<SpriteRenderer>();
+		sr->SetView(Vector2(2, 2), Vector2(2888, 273));
 	}
 	BackGround::~BackGround() {
 		GameObject::~GameObject();

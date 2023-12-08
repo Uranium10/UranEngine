@@ -4,6 +4,7 @@
 
 namespace ur {
 	Cat::Cat() : GameObject() {
+		SetName(L"Cat");
 		GameObject::SetAnimation(L"DownWalk", L"Cat", Vector2::ZERO, Vector2(32.0f, 32.0f), Vector2::ZERO, 4, 0.1f);
 		GameObject::SetAnimation(L"RightWalk", L"Cat", Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::ZERO, 4, 0.1f);
 		GameObject::SetAnimation(L"UpWalk", L"Cat", Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f), Vector2::ZERO, 4, 0.1f);

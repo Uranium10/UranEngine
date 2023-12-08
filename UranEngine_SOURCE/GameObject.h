@@ -2,10 +2,11 @@
 #include "commonInclude.h"
 #include "urComponent.h"
 #include "urTransform.h"
+#include "urEntity.h"
 #include <typeinfo>
 
 namespace ur {
-	class GameObject
+	class GameObject : public Entity
 	{
 	public:
 		GameObject();

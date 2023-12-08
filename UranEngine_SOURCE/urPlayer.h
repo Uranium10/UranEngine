@@ -14,6 +14,7 @@ namespace ur {
 		void Render(HDC hdc) override;
 	private:
 		Animator* getPart() { return GetComponentByType<Animator>(enums::eComponentType::PartAnimator); }
+		void applyAnim(Animator* pa, WST& anim_name, WST& name, UINT frame, float dur);
 	};
 }
 

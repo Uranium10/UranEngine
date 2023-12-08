@@ -11,8 +11,8 @@
 namespace ur {
 	PlayerScript::PlayerScript() :Script(), mState(eState::Idle), mAnimator(nullptr), mPart(nullptr) {
 	}
-	PlayerScript::~PlayerScript(){ }
-	void PlayerScript::Initialize(){ }
+	PlayerScript::~PlayerScript() { }
+	void PlayerScript::Initialize() { }
 	void PlayerScript::Update() {
 		mAnimator = GetOwner()->GetComponent<Animator>();
 		mPart = GetOwner()->GetComponentByType<Animator>(enums::eComponentType::PartAnimator);
@@ -26,9 +26,6 @@ namespace ur {
 		case ur::PlayerScript::eState::Walk:
 			move();
 			break;
-		case ur::PlayerScript::eState::Sleep:
-			grooming();
-			break;
 		case ur::PlayerScript::eState::Transition:
 			transition();
 			break;
@@ -38,7 +35,7 @@ namespace ur {
 			break;
 		}
 
-		
+
 	}
 	void PlayerScript::LateUpdate()
 	{
@@ -52,32 +49,18 @@ namespace ur {
 	}
 	void PlayerScript::Idle() {
 		if (Input::GetKey(eKeyCode::Left)) {
-			mAnimator->PlayAnimation(L"LeftWalk");
-			mPart->PlayAnimation(L"Run");
+			mAnimator->PlayAnimation(L"RunL");
+			mPart->PlayAnimation(L"RunL");
 			mState = eState::Walk;
 		}
 		if (Input::GetKey(eKeyCode::Right)) {
-			mAnimator->PlayAnimation(L"RightWalk");
-			mPart->PlayAnimation(L"Run");
+			mAnimator->PlayAnimation(L"RunR");
+			mPart->PlayAnimation(L"RunR");
 			mState = eState::Walk;
-		}
-		if (Input::GetKey(eKeyCode::Up)) {
-			mAnimator->PlayAnimation(L"UpWalk");
-			mPart->PlayAnimation(L"Run");
-			mState = eState::Walk;
-		}
-		if (Input::GetKey(eKeyCode::Down)) {
-			mAnimator->PlayAnimation(L"DownWalk");
-			mPart->PlayAnimation(L"Run");
-			mState = eState::Walk;
-		}
-		if (Input::GetKey(eKeyCode::Space)) {
-			mAnimator->PlayAnimation(L"Grooming", false);
-			mState = eState::Sleep;
 		}
 		if (Input::GetKeyDown(eKeyCode::LButton)) {
 			Transform* tr = GetOwner()->GetComponent<Transform>();
-			Vector2 vect = Input::GetMousePosition() - Vector2{800, 450};
+			Vector2 vect = Input::GetMousePosition() - Vector2{ 800, 450 };
 			object::Instantiate<Cat>(enums::eLayerType::Animal, vect);
 		}
 	}
@@ -86,28 +69,20 @@ namespace ur {
 		float delta = 100.0f * Time::DeltaTime();
 		Vector2 d = Input::GetVector() * delta;
 		tr->SetPos(tr->GetPos() + d);
-		if (Input::GetKeyUp(eKeyCode::Down) 
-			|| Input::GetKeyUp(eKeyCode::Up)
-			|| Input::GetKeyUp(eKeyCode::Left)
-			|| Input::GetKeyUp(eKeyCode::Right)) {
-			mState = eState::Transition;
+		if (Input::GetKeyUp(eKeyCode::Left)) {
+			mAnimator->PlayAnimation(L"IdleL");
+			mPart->PlayAnimation(L"IdleL");
+			transition();
+		}
+		else if (Input::GetKeyUp(eKeyCode::Right)) {
+			mAnimator->PlayAnimation(L"IdleR");
+			mPart->PlayAnimation(L"IdleR");
+			transition();
 		}
 	}
 	void PlayerScript::transition() {
 		mState = eState::Idle;
-		if (Input::GetVector() == Vector2::ZERO) {
-			mAnimator->PlayAnimation(L"Idle", false);
-
-			mPart->PlayAnimation(L"Idle");
-		}
-		else
+		if (Input::GetVector() != Vector2::ZERO)
 			Idle();
-	}
-	void PlayerScript::grooming() {
-		if (mAnimator->IsCompleteAnimation()) {
-			mAnimator->PlayAnimation(L"Idle", false);
-			mPart->PlayAnimation(L"Idle");
-			mState = eState::Idle;
-		}
 	}
 }

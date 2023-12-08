@@ -15,6 +15,7 @@
 #include <mmsystem.h>
 #include <dinput.h>
 
+typedef const std::wstring WST;
 
 #include "urLnums.h"
 //∫Ò∆Æ∏ 
