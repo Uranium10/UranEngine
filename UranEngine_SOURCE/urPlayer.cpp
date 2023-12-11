@@ -22,7 +22,7 @@ namespace ur {
 		GameObject::SetAnimation(L"UpToFrontR", L"Marco_Top_Upper", Vector2(64.0f, 0.0f), Vector2(64.0f, 64.0f), Vector2::ZERO, 2, 0.025f);
 		GameObject::SetAnimation(L"UpToFrontL", L"Marco_Top_Upper", Vector2(64.0f, 64.0f), Vector2(64.0f, 64.0f), Vector2::ZERO, 2, 0.025f);
 		GameObject::SetAnimation(L"FPUR", L"Marco_Top_FPUpper", Vector2::ZERO, Vector2(64.0f, 128.0f), Vector2(0.0f, -64.0f), 10, 0.025f);
-		GameObject::SetAnimation(L"FPUL", L"Marco_Top_FPUpper", Vector2(0.0f, 128.0f), Vector2(64.0f, 128.0f), Vector2(0.0f, -64.0f), 10, 0.25f);
+		GameObject::SetAnimation(L"FPUL", L"Marco_Top_FPUpper", Vector2(0.0f, 128.0f), Vector2(64.0f, 128.0f), Vector2(0.0f, -64.0f), 10, 0.025f);
 		PlayerScript* ps = this->AddComponent<PlayerScript>();
 		GameObject::GetComponent<Transform>()->SetOffset(Vector2(32.0f, 32.0f));
 		GameObject::GetComponent<Transform>()->SetScale(Vector2::ONE);
