@@ -71,7 +71,7 @@ namespace ur {
 			return nullptr;
 		return iter->second;
 	}
-	void Animator::PlayAnimation(const std::wstring& name, bool loop) {
+	void Animator::PlayAnimation(const std::wstring& name, bool loop, int index) {
 		Animation* animation = FindAnimation(name);
 		if (animation == nullptr)
 			return;
@@ -90,6 +90,7 @@ namespace ur {
 		// 이전에 플레이중이었던 애니메이션일 수도 있으니 리셋
 		mActiveAnimation = animation;
 		mActiveAnimation->Reset();
+		mActiveAnimation->SetIndex(index);
 		mbLoop = loop;
 	}
 	Animator::Events* Animator::FindEvents(const std::wstring& name) {

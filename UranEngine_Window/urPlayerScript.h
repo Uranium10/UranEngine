@@ -13,6 +13,12 @@ namespace ur {
 			Attack,
 			Transition,
 		};
+		enum class eLook {
+			Front,
+			Upper,
+			Down,
+			End
+		};
 		PlayerScript();
 		~PlayerScript();
 
@@ -21,14 +27,21 @@ namespace ur {
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 		void CreateCat();
+		void TopTransitionToIdle();
+		void TopTransitionToUpper();
 	private:
 		eState mState;
+		eLook mLook;
+		float atkDelay;
+		int mSide;	// 0 : left, 1 : right
 		class Animator* mAnimator;
 		class Animator* mPart;
+		class Transform* mTransform;
 
 		void Idle();
 		void move();
 		void transition();
-		void grooming();
+		void frontTransitionAnimToIdle();
+		void playAttackAnimation();
 	};
 }

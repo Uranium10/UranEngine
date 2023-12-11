@@ -39,7 +39,8 @@ namespace ur {
 			, float duration);
 		Animation* FindAnimation(const std::wstring& name);
 		// 함수의 전달인자는 오른쪽부터 읽어오므로, 디폴트 값 설정할 인자는 오른쪽에 몰아줘야 함
-		void PlayAnimation(const std::wstring& name, bool loop = true);
+		void PlayAnimation(const std::wstring& name, bool loop = true, int index = 0);
+		int GetIndex() { return mActiveAnimation->GetIndex(); }
 		
 		Events* FindEvents(const std::wstring& name);
 

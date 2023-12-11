@@ -58,6 +58,12 @@ namespace ur::math {
 			Vector2 vv2 = v2.Normalize();
 			return acosf(Dot(vv1, vv2));
 		}
+		static Vector2 VectorOfX(Vector2& v) {
+			return Vector2(v.x, 0.0f);
+		}
+		static Vector2 VectorOfY(Vector2& v) {
+			return Vector2(0.0f, v.y);
+		}
 	};
 }
 
