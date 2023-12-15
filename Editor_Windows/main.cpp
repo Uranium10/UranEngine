@@ -9,7 +9,7 @@
 #include "..\\UranEngine_Window\\urLoadScene.h"
 
 ur::Application application;
-float wWidth = 1600, wHeight = 900;
+float wWidth = 400, wHeight = 264;
 
 ULONG_PTR gpToken;
 Gdiplus::GdiplusStartupInput gpsi;

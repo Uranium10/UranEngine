@@ -12,6 +12,7 @@ namespace ur::math {
 	struct Vector2 {
 		static Vector2 ZERO;
 		static Vector2 ONE;
+		static Vector2 DOUBLE;
 		static Vector2 LEFT;
 		static Vector2 RIGHT;
 		static Vector2 UP;

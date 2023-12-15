@@ -11,6 +11,8 @@
 #include "urRenderer.h"
 #include "urPlayerScript.h"
 #include "urCat.h"
+#include "urStage1_1.h"
+#include "urStage1_Shore.h"
 
 extern float wWidth;
 extern float wHeight;
@@ -29,12 +31,9 @@ namespace ur {
 		cameraComp->SetResolution(Vector2(wWidth, wHeight));
 		renderer::mainCamera = cameraComp;
 
-		mBg = object::Instantiate<BackGround>(enums::eLayerType::Background, Vector2(0.0f, 0.0f));
-		Transform* tr = mBg->GetComponent<Transform>();
-		tr->SetScale(Vector2(2.0f,2.0f));
-		tr->SetPos(Vector2(-wWidth / 2.0f, -wHeight / 2.0f));
+		setBackground();
 
-		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(100.0f, 100.0f));
+		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(32.0f, 164.0f));
 
 		//object::Instantiate<Cat>(enums::eLayerType::Animal, Vector2(200.0f, 200.0f));
 
@@ -62,5 +61,13 @@ namespace ur {
 	}
 	void PlayScene::OnExit() {
 		//mPlayer->GetComponent<Transform>()->SetPos(Vector2(0, 0));
+	}
+	void PlayScene::setBackground() {
+		Transform* tr;
+		mBg = object::Instantiate<BackGround>(enums::eLayerType::FarBackground, Vector2(0.0f, -66.0f));
+
+		Stage1_1* ter1 = object::Instantiate<Stage1_1>(enums::eLayerType::Terrain, Vector2(0.0f, -14.0f));
+
+		Stage1_Shore* ter2 = object::Instantiate<Stage1_Shore>(enums::eLayerType::AnimatedTerrain, Vector2(0.0f, 143.0f));
 	}
 }

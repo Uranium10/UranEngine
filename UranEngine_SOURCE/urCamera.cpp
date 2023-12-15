@@ -18,7 +18,19 @@ namespace ur {
 	void Camera::Update() {
 		if (mTarget) {
 			Transform* tr = mTarget->GetComponent<Transform>();
-			mLookPosition = tr->GetPos() + tr->GetOffset();
+			Vector2 charPos = tr->GetPos() + tr->GetOffset();
+			Vector2 coord = Vector2::ZERO;
+			if (charPos.x < wWidth / 2)
+				coord.x = wWidth / 2;
+			// 맵크기 넘어갈시의 카메라 이동 설정
+			else
+				coord.x = charPos.x;
+			if (charPos.y > wHeight / 2)
+				coord.y = wHeight / 2;
+			// 맵크기 넘어갈시의 카메라 이동 설정
+			else
+				coord.y = charPos.y;
+			mLookPosition = coord;
 		}
 		else {
 			Transform* cameraTr = GetOwner()->GetComponent<Transform>();
