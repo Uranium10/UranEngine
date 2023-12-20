@@ -22,5 +22,6 @@ namespace ur {
 		BackGround* mBg;
 
 		void setBackground();
+		void setMonster();
 	};
 }

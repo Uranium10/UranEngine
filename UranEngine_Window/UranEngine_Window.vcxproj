@@ -133,6 +133,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="urCatScript.h" />
+    <ClInclude Include="urCrabScript.h" />
     <ClInclude Include="urLoadResources.h" />
     <ClInclude Include="urLoadScene.h" />
     <ClInclude Include="urPlayerScript.h" />
@@ -141,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="urCatScript.cpp" />
+    <ClCompile Include="urCrabScript.cpp" />
     <ClCompile Include="urPlayerScript.cpp" />
     <ClCompile Include="urPlayScene.cpp" />
     <ClCompile Include="urTitleScene.cpp" />

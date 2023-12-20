@@ -45,7 +45,6 @@ namespace ur {
 		eWeapon mWeapon;
 
 		float atkDelay;
-		int mSide;	// 0 : left, 1 : right
 		bool mbMove;
 		bool mbFire;
 
@@ -69,8 +68,6 @@ namespace ur {
 
 		void playAttackAnimation();
 		void playBombAnimation();
-
-		void playAnimationWithSide(WST& anim, Animator* am, bool loop = true);
 
 		void pressUpKey();
 		void releaseUpKey();

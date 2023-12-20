@@ -77,6 +77,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)urStage1_Shore.cpp">
       <Filter>Objects\Backgrounds\Stage1</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)urCrab.cpp">
+      <Filter>Objects\Monster</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)urSceneManager.h">
@@ -164,6 +167,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)urStage1_Shore.h">
       <Filter>Objects\Backgrounds\Stage1</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)urCrab.h">
+      <Filter>Objects\Monster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Helper">
@@ -216,6 +222,9 @@
     </Filter>
     <Filter Include="Objects\Backgrounds\Stage1">
       <UniqueIdentifier>{d9317b9f-7fe6-4062-8442-c206af364b13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Monster">
+      <UniqueIdentifier>{ca7e3749-8dfa-41da-a04a-2a445cd32247}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

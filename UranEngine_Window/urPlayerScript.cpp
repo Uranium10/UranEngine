@@ -9,19 +9,19 @@
 #include "urObject.h"
 
 namespace ur {
-	const wchar_t* SIDES[2] = { L"L", L"R" };
 	PlayerScript::PlayerScript()
 		: Script()
 		, mState(eState::Idle)
 		, mAnimator(nullptr)
 		, mPart(nullptr)
 		, atkDelay(0)
-		, mSide(1)
 		, mTransform(nullptr)
 		, mLook(eLook::Front)
 		, mbMove(false)
 		, mbFire(false)
-		, mWeapon(eWeapon::Pistol) { }
+		, mWeapon(eWeapon::Pistol) {
+		mSide = eSide::Right;
+	}
 	PlayerScript::~PlayerScript() { }
 
 	void PlayerScript::Initialize() { }
@@ -74,29 +74,29 @@ namespace ur {
 	}
 	void PlayerScript::Idle() {
 		if (Input::GetKey(eKeyCode::Left)) {
-			if (mSide == 1)
+			if (mSide == eSide::Right)
 				mbFire = false;
 			if (!mbFire) {
 				if (mLook == eLook::Front)
 					mAnimator->PlayAnimation(L"RunL");
-				if (mSide == 1 && mLook == eLook::Upper)
+				if (mSide == eSide::Right && mLook == eLook::Upper)
 					mAnimator->PlayAnimation(L"UpperL");
 			}
 			mPart->PlayAnimation(L"RunL");
-			mSide = 0;
+			mSide = eSide::Left;
 			mState = eState::Run;
 		}
 		if (Input::GetKey(eKeyCode::Right)) {
-			if (mSide == 0)
+			if (mSide == eSide::Left)
 				mbFire = false;
 			if (!mbFire) {
 				if (mLook == eLook::Front)
 					mAnimator->PlayAnimation(L"RunR");
-				if (mSide == 0 && mLook == eLook::Upper)
+				if (mSide == eSide::Left && mLook == eLook::Upper)
 					mAnimator->PlayAnimation(L"UpperR");
 			}
 			mPart->PlayAnimation(L"RunR");
-			mSide = 1;
+			mSide = eSide::Right;
 			mState = eState::Run;
 		}
 		/*
@@ -130,8 +130,8 @@ namespace ur {
 		Vector2 d = Input::GetVector();
 		if (Vector2::VectorOfX(d) != Vector2::ZERO) {
 			if (!mbFire || Input::GetKeyDown(eKeyCode::A)) {
-				mSide = d.x == 1;
-				playAnimationWithSide(L"SitWalk", mAnimator);
+				mSide = (eSide)(d.x == 1);
+				PlayAnimationWithSide(L"SitWalk", mAnimator);
 				mState = eState::SitWalk;
 			}
 		}
@@ -145,7 +145,7 @@ namespace ur {
 		Vector2 d = Input::GetVector() * delta;
 		d = Vector2::VectorOfX(d);
 		if (d == Vector2::ZERO) {
-			playAnimationWithSide(L"Sit", mAnimator);
+			PlayAnimationWithSide(L"Sit", mAnimator);
 			mState = eState::Sit;
 		}
 		d += mTransform->GetPos();
@@ -186,44 +186,38 @@ namespace ur {
 			animIndex.append(L"Run");
 			break;
 		}
-		animIndex.append(SIDES[mSide]);
+		animIndex.append(SIDES[(UINT)mSide]);
 		mAnimator->PlayAnimation(animIndex.c_str(), mPart->GetIndex());
 	}
 
 	void PlayerScript::TransitionToSit() {
-		playAnimationWithSide(L"Sit", mAnimator);
+		PlayAnimationWithSide(L"Sit", mAnimator);
 		mState = eState::Sit;
 	}
 
 	void PlayerScript::TransitionFromSit(){
 		mState = eState::Idle;
-		playAnimationWithSide(L"Idle", mAnimator);
-		playAnimationWithSide(L"Idle", mPart, false);
+		PlayAnimationWithSide(L"Idle", mAnimator);
+		PlayAnimationWithSide(L"Idle", mPart, false);
 	}
 
 	void PlayerScript::TransitionFromSitFire() {
 		mState = eState::Sit;
-		playAnimationWithSide(L"Sit", mAnimator);
+		PlayAnimationWithSide(L"Sit", mAnimator);
 		mbFire = false;
-	}
-
-	void PlayerScript::playAnimationWithSide(WST& anim, Animator* am, bool loop) {
-		std::wstring animIndex(anim);
-		animIndex.append(SIDES[mSide]);
-		am->PlayAnimation(animIndex, loop);
 	}
 
 	void PlayerScript::playAttackAnimation() {
 		switch (mState) {
 		case ur::PlayerScript::eState::TransToStand:
-			playAnimationWithSide(L"Idle", mPart, false);
+			PlayAnimationWithSide(L"Idle", mPart, false);
 			mState = eState::Idle;
 		case ur::PlayerScript::eState::Idle:
 		case ur::PlayerScript::eState::Run:
 			if (mLook == eLook::Front)
-				playAnimationWithSide(L"FP", mAnimator, false);
+				PlayAnimationWithSide(L"FP", mAnimator, false);
 			else if (mLook == eLook::Upper)
-				playAnimationWithSide(L"FPU", mAnimator, false);
+				PlayAnimationWithSide(L"FPU", mAnimator, false);
 			mbFire = true;
 			break;
 		case ur::PlayerScript::eState::SitWalk:
@@ -231,7 +225,7 @@ namespace ur {
 			mbFire = true;
 			mState = eState::Sit;
 		case ur::PlayerScript::eState::Sit:
-			playAnimationWithSide(L"SitFP", mAnimator, false);
+			PlayAnimationWithSide(L"SitFP", mAnimator, false);
 			break;
 		case ur::PlayerScript::eState::Jump:
 			break;
@@ -246,13 +240,13 @@ namespace ur {
 		switch (mState) {
 
 		case ur::PlayerScript::eState::TransToStand:
-			playAnimationWithSide(L"Idle", mPart, false);
+			PlayAnimationWithSide(L"Idle", mPart, false);
 			mState = eState::Idle;
 		case ur::PlayerScript::eState::Idle:
-			playAnimationWithSide(L"BP", mAnimator, false);
+			PlayAnimationWithSide(L"BP", mAnimator, false);
 			return;
 		case ur::PlayerScript::eState::Run:
-			playAnimationWithSide(L"BP", mAnimator, false);
+			PlayAnimationWithSide(L"BP", mAnimator, false);
 			mbFire = true;
 			break;
 		case ur::PlayerScript::eState::SitWalk:
@@ -260,7 +254,7 @@ namespace ur {
 			mbFire = true;
 			mState = eState::Sit;
 		case ur::PlayerScript::eState::Sit:
-			playAnimationWithSide(L"SitBP", mAnimator, false);
+			PlayAnimationWithSide(L"SitBP", mAnimator, false);
 			break;
 		case ur::PlayerScript::eState::Jump:
 			break;
@@ -277,7 +271,7 @@ namespace ur {
 		case ur::PlayerScript::eState::Run:
 			if (mLook != eLook::Upper) {
 				mLook = eLook::Upper;
-				playAnimationWithSide(L"ToUpper", mAnimator, false);
+				PlayAnimationWithSide(L"ToUpper", mAnimator, false);
 			}
 			break;
 		case ur::PlayerScript::eState::Sit:
@@ -296,7 +290,7 @@ namespace ur {
 		case ur::PlayerScript::eState::Idle:
 		case ur::PlayerScript::eState::Run:
 			mLook = eLook::Front;
-			playAnimationWithSide(L"UpToFront", mAnimator, false);
+			PlayAnimationWithSide(L"UpToFront", mAnimator, false);
 			break;
 		case ur::PlayerScript::eState::Sit:
 			break;
@@ -315,7 +309,7 @@ namespace ur {
 		case ur::PlayerScript::eState::Run:
 			mLook = eLook::Front;
 			mState = eState::TransToSit;
-			playAnimationWithSide(L"ToSit", mAnimator, false);
+			PlayAnimationWithSide(L"ToSit", mAnimator, false);
 			mPart->PlayAnimation(L"null", false);
 			break;
 		case ur::PlayerScript::eState::Sit:
@@ -339,7 +333,7 @@ namespace ur {
 		case ur::PlayerScript::eState::SitWalk:
 			mState = eState::TransToStand;
 			mLook = eLook::Front;
-			playAnimationWithSide(L"SitToStand", mAnimator, false);
+			PlayAnimationWithSide(L"SitToStand", mAnimator, false);
 			break;
 		case ur::PlayerScript::eState::Jump:
 			break;
@@ -373,6 +367,6 @@ namespace ur {
 	}
 
 	void PlayerScript::TopTransitionToUpper() {
-		playAnimationWithSide(L"Upper", mAnimator);
+		PlayAnimationWithSide(L"Upper", mAnimator);
 	}
 }

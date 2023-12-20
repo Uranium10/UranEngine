@@ -65,6 +65,10 @@ namespace ur::math {
 		static Vector2 VectorOfY(Vector2& v) {
 			return Vector2(0.0f, v.y);
 		}
+		static float DistanceToward(Vector2& v1, Vector2& v2) {
+			Vector2 d = v1 - v2;
+			return d.Distance();
+		}
 	};
 }
 

@@ -3,6 +3,7 @@
 
 namespace ur {
 	BackGround::BackGround() : GameObject() {
+		SetName(L"FarBG");
 		GameObject::SetTexture(L"BG");
 
 		SpriteRenderer* sr = GameObject::GetComponent<SpriteRenderer>();

@@ -13,6 +13,7 @@
 #include "urCat.h"
 #include "urStage1_1.h"
 #include "urStage1_Shore.h"
+#include "urCrab.h"
 
 extern float wWidth;
 extern float wHeight;
@@ -34,6 +35,9 @@ namespace ur {
 		setBackground();
 
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(32.0f, 164.0f));
+
+
+		setMonster();
 
 		//object::Instantiate<Cat>(enums::eLayerType::Animal, Vector2(200.0f, 200.0f));
 
@@ -69,5 +73,9 @@ namespace ur {
 		Stage1_1* ter1 = object::Instantiate<Stage1_1>(enums::eLayerType::Terrain, Vector2(0.0f, -14.0f));
 
 		Stage1_Shore* ter2 = object::Instantiate<Stage1_Shore>(enums::eLayerType::AnimatedTerrain, Vector2(0.0f, 143.0f));
+	}
+	void PlayScene::setMonster() {
+		Crab* crab = object::Instantiate<Crab>(enums::eLayerType::Animal, Vector2(500.0f, 164.0f));
+		crab->SetTarget(mPlayer);
 	}
 }

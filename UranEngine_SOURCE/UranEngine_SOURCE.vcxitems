@@ -16,6 +16,7 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)commonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)urCrab.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)urStage1_Shore.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)urAnimation.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)urAnimator.h" />
@@ -45,6 +46,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)urLnums.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)urCrab.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)urStage1_Shore.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)urAnimation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)urAnimator.cpp" />

@@ -30,6 +30,12 @@ namespace ur {
 			Resources::Load<graphics::Texture>(L"Marco_FPSit", L"..\\Resources\\Mr_FPSit.bmp");
 			Resources::Load<graphics::Texture>(L"Marco_BPSit", L"..\\Resources\\Mr_BPSit.bmp");
 		}
+		// Loading Crab
+		{
+			Resources::Load<graphics::Texture>(L"Crab_Idle", L"..\\Resources\\npc\\Crab\\Idle.bmp");
+			Resources::Load<graphics::Texture>(L"Crab_Walk", L"..\\Resources\\npc\\Crab\\Walk.bmp");
+			Resources::Load<graphics::Texture>(L"Crab_Melee", L"..\\Resources\\npc\\Crab\\Melee.bmp");
+		}
 		Resources::Load<graphics::Texture>(L"Cat", L"..\\Resources\\cat.bmp");
 	}
 }
