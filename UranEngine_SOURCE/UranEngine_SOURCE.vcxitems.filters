@@ -68,6 +68,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)urCat.cpp">
       <Filter>Contents</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)urCollider.cpp">
+      <Filter>Component\Collider</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)urSceneManager.h">
@@ -128,9 +131,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)urTransform.h">
       <Filter>Component\Transform</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)urSpriteRenderer.h">
-      <Filter>Component\SpriteRenderer</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)urCamera.h">
       <Filter>Component\Camera</Filter>
     </ClInclude>
@@ -145,6 +145,12 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)urCat.h">
       <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)urCollider.h">
+      <Filter>Component\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)urSpriteRenderer.h">
+      <Filter>Component\SpriteRenderer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -189,6 +195,9 @@
     </Filter>
     <Filter Include="Resource Management\Animation">
       <UniqueIdentifier>{289aaaa4-f50d-467c-bd8f-32de1a731ff5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Collider">
+      <UniqueIdentifier>{6ce7c17b-2494-4d46-affa-340f3fb4106d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

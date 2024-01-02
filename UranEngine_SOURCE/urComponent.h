@@ -17,6 +17,7 @@ namespace ur {
 		void SetOwner(GameObject* owner) { mOwner = owner; }
 		GameObject* GetOwner() { return mOwner; }
 		enums::eComponentType GetType() { return mType; }
+		void ChangeType(enums::eComponentType type) { mType = type; }
 	private:
 		GameObject* mOwner;
 		enums::eComponentType mType;

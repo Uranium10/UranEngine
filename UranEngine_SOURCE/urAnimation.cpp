@@ -64,8 +64,8 @@ namespace ur {
 
 			AlphaBlend(hdc
 				// 그릴 위치
-				, pos.x - os.x
-				, pos.y - os.y
+				, pos.x - os.x + sprite.offset.x
+				, pos.y - os.y + sprite.offset.y
 				// 그릴 크기
 				, sprite.size.x * scale.x
 				, sprite.size.y * scale.y
@@ -88,8 +88,8 @@ namespace ur {
 
 			graphics.DrawImage(mTexture->GetImage()
 				, Gdiplus::Rect (
-					pos.x - os.x
-					, pos.y - os.y
+					pos.x - os.x + sprite.offset.x
+					, pos.y - os.y + sprite.offset.y
 					, sprite.size.x * scale.x
 					, sprite.size.y * scale.y
 				)

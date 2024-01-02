@@ -2,9 +2,11 @@
 #include "commonInclude.h"
 #include "urComponent.h"
 #include "urTransform.h"
+#include "urEntity.h"
+#include <typeinfo>
 
 namespace ur {
-	class GameObject
+	class GameObject : public Entity
 	{
 	public:
 		GameObject();
@@ -33,6 +35,12 @@ namespace ur {
 			return comp;
 		}
 
+		void AddComponentByParam(enums::eComponentType type, Component* comp) {
+			comp->Initialize();
+			comp->SetOwner(this);
+			mComponents[(UINT)type] = comp;
+		}
+
 		template <typename T>
 		T* GetComponent() {
 			T* component = nullptr;
@@ -40,9 +48,14 @@ namespace ur {
 				// dynamic_cast는 부모-자식간 형변환 진행. 잘못된 형변환이면 NULL반환
 				component = dynamic_cast<T*>(comp);
 				if (component)
-					break;
+					if (comp->GetType() != enums::eComponentType::PartAnimator)
+						break;
 			}
 			return component;
+		}
+		template <typename T>
+		T* GetComponentByType(enums::eComponentType type) {
+			return dynamic_cast<T*>(mComponents[(UINT)type]);
 		}
 	private:
 		void addInitializeTransForm();

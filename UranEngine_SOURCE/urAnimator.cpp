@@ -2,8 +2,8 @@
 #include "urComponent.h"
 
 namespace ur {
-	Animator::Animator()
-		: Component(enums::eComponentType::Animator)
+	Animator::Animator(enums::eComponentType type)
+		: Component(type)
 		, mAnimations{}
 		, mActiveAnimation(nullptr)
 		, mbLoop(false)

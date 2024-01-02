@@ -24,6 +24,7 @@ namespace ur {
 	private:
 		eState mState;
 		class Animator* mAnimator;
+		class Animator* mPart;
 
 		void Idle();
 		void move();

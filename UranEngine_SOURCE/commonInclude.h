@@ -4,14 +4,18 @@
 #include <assert.h>
 #include <vector>
 #include "urTime.h"
+#include <algorithm>
 #include <string>
 #include <map>
 #include <functional>
 #include "urMath.h"
+#include <math.h>
+#include <filesystem>
 
 #include <mmsystem.h>
 #include <dinput.h>
 
+typedef const std::wstring WST;
 
 #include "urLnums.h"
 //∫Ò∆Æ∏ 

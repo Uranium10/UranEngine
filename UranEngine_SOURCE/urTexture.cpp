@@ -5,7 +5,7 @@
 extern ur::Application application;
 
 namespace ur::graphics {
-	Texture::Texture() : Resource(enums::eResourceType::Texture) {
+	Texture::Texture() : Resource(enums::eResourceType::Texture), mBitmap(nullptr) {
 
 	}
 	Texture::~Texture() {
@@ -16,7 +16,7 @@ namespace ur::graphics {
 		//find_last_of로 . 까지 추출, +1로 확장자만 추출
 		std::wstring ext = path.substr(path.find_last_of(L".") + 1);
 		//bmp 일 때
-		if (ext == L"bmp") {
+		if (ext == L"bmp" || ext == L"BMP") {
 			mType = eTextureType::Bmp;
 			// bmp이미지 불러오기 ( 핸들, 경로(w_char*) )
 			mBitmap = (HBITMAP)LoadImageW(nullptr, path.c_str(), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
@@ -29,6 +29,11 @@ namespace ur::graphics {
 			GetObject(mBitmap, sizeof(BITMAP), &info);
 			mWidth = info.bmWidth;
 			mHeight = info.bmHeight;
+
+			if (info.bmBitsPixel == 32)
+				mbAlpha = true;
+			else if (info.bmBitsPixel == 24)
+				mbAlpha = false;
 			
 			// 비트맵 값을 화면에 출력해줄 DC가 필요
 			HDC mainDC = application.GetHdc();

@@ -29,7 +29,11 @@ namespace ur {
 		cameraComp->SetResolution(Vector2(wWidth, wHeight));
 		renderer::mainCamera = cameraComp;
 
-		object::Instantiate<BackGround>(enums::eLayerType::Background, Vector2(0.0f, 0.0f));
+		mBg = object::Instantiate<BackGround>(enums::eLayerType::Background, Vector2(0.0f, 0.0f));
+		Transform* tr = mBg->GetComponent<Transform>();
+		tr->SetScale(Vector2(2.0f,2.0f));
+		tr->SetPos(Vector2(-wWidth / 2.0f, -wHeight / 2.0f));
+
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player, Vector2(100.0f, 100.0f));
 
 		//object::Instantiate<Cat>(enums::eLayerType::Animal, Vector2(200.0f, 200.0f));

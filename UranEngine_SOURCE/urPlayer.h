@@ -1,5 +1,6 @@
 #pragma once
 #include "GameObject.h"
+#include "urAnimator.h"
 
 namespace ur {
 	class Player : public GameObject {
@@ -12,6 +13,8 @@ namespace ur {
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 	private:
+		Animator* getPart() { return GetComponentByType<Animator>(enums::eComponentType::PartAnimator); }
+		void applyAnim(Animator* pa, WST& anim_name, WST& name, UINT frame, float dur);
 	};
 }
 
