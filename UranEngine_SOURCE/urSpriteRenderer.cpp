@@ -35,6 +35,9 @@ namespace ur {
 
 		pos = renderer::mainCamera->CalculatePosition(pos);
 
+		if (!std::wcscmp(GetOwner()->GetName().c_str(), L"FarBG"))
+			pos.x /= 2;
+
 		if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp) {
 			if (mTexture->IsAlpha()) {
 				BLENDFUNCTION func = {};

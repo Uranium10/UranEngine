@@ -20,5 +20,8 @@ namespace ur {
 	private:
 		Player* mPlayer;
 		BackGround* mBg;
+
+		void setBackground();
+		void setMonster();
 	};
 }

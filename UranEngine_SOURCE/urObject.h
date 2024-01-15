@@ -13,7 +13,7 @@ namespace ur::object {
 		Scene* activeScene = SceneManager::GetActiveScene();
 		Layer* layer = activeScene->GetLayer(type);
 		layer->AddGameObject(gameObject);
-
+		gameObject->SetLayer(type);
 		Transform* tr = gameObject->GetComponent<Transform>();
 		tr->SetPos(position);
 

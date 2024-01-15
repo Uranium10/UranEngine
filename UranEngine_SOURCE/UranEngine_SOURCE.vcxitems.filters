@@ -21,10 +21,10 @@
       <Filter>Component</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject.cpp">
-      <Filter>Contents</Filter>
+      <Filter>Objects</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)urPlayer.cpp">
-      <Filter>Contents</Filter>
+      <Filter>Objects</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)urLayer.cpp">
       <Filter>Scene</Filter>
@@ -32,17 +32,14 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)urMath.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)urBackground.cpp">
-      <Filter>Contents</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)urResource.cpp">
-      <Filter>Resource Management</Filter>
+      <Filter>Sprite</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)urResources.cpp">
-      <Filter>Resource Management</Filter>
+      <Filter>Sprite</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)urTexture.cpp">
-      <Filter>Resource Management\Texture</Filter>
+      <Filter>Sprite\Texture</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)urScript.cpp">
       <Filter>Component\Script</Filter>
@@ -63,13 +60,25 @@
       <Filter>Component\Animator</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)urAnimation.cpp">
-      <Filter>Resource Management\Animation</Filter>
+      <Filter>Sprite\Animation</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)urCat.cpp">
-      <Filter>Contents</Filter>
+      <Filter>Objects</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)urCollider.cpp">
       <Filter>Component\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)urBackground.cpp">
+      <Filter>Objects\Backgrounds\Stage1</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)urStage1_1.cpp">
+      <Filter>Objects\Backgrounds\Stage1</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)urStage1_Shore.cpp">
+      <Filter>Objects\Backgrounds\Stage1</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)urCrab.cpp">
+      <Filter>Objects\Monster</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -93,10 +102,10 @@
       <Filter>Component</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject.h">
-      <Filter>Contents</Filter>
+      <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)urPlayer.h">
-      <Filter>Contents</Filter>
+      <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)urLayer.h">
       <Filter>Scene</Filter>
@@ -113,17 +122,14 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)urObject.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)urBackground.h">
-      <Filter>Contents</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)urResource.h">
-      <Filter>Resource Management</Filter>
+      <Filter>Sprite</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)urResources.h">
-      <Filter>Resource Management</Filter>
+      <Filter>Sprite</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)urTexture.h">
-      <Filter>Resource Management\Texture</Filter>
+      <Filter>Sprite\Texture</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)urScript.h">
       <Filter>Component\Script</Filter>
@@ -141,16 +147,28 @@
       <Filter>Component\Animator</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)urAnimation.h">
-      <Filter>Resource Management\Animation</Filter>
+      <Filter>Sprite\Animation</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)urCat.h">
-      <Filter>Contents</Filter>
+      <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)urCollider.h">
       <Filter>Component\Collider</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)urSpriteRenderer.h">
       <Filter>Component\SpriteRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)urBackground.h">
+      <Filter>Objects\Backgrounds\Stage1</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)urStage1_1.h">
+      <Filter>Objects\Backgrounds\Stage1</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)urStage1_Shore.h">
+      <Filter>Objects\Backgrounds\Stage1</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)urCrab.h">
+      <Filter>Objects\Monster</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -162,9 +180,6 @@
     </Filter>
     <Filter Include="Application">
       <UniqueIdentifier>{2ae988dd-5f05-4b95-8159-b39326e1da2a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents">
-      <UniqueIdentifier>{fc50e56f-c54c-40f5-8f2c-91fff83465d6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Scene">
       <UniqueIdentifier>{3c6c8fe5-b277-4560-9afe-4ac07fe00970}</UniqueIdentifier>
@@ -187,17 +202,29 @@
     <Filter Include="Component\Animator">
       <UniqueIdentifier>{3c7bb011-66b8-4342-b422-338e6ee19d45}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Management">
-      <UniqueIdentifier>{e88f8299-7c22-47d8-ae45-57e893ef2e81}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Management\Texture">
-      <UniqueIdentifier>{e608085e-9d82-4f36-aade-1d7eca7da8e0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Management\Animation">
-      <UniqueIdentifier>{289aaaa4-f50d-467c-bd8f-32de1a731ff5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Component\Collider">
       <UniqueIdentifier>{6ce7c17b-2494-4d46-affa-340f3fb4106d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sprite">
+      <UniqueIdentifier>{e88f8299-7c22-47d8-ae45-57e893ef2e81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sprite\Texture">
+      <UniqueIdentifier>{e608085e-9d82-4f36-aade-1d7eca7da8e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sprite\Animation">
+      <UniqueIdentifier>{289aaaa4-f50d-467c-bd8f-32de1a731ff5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects">
+      <UniqueIdentifier>{fc50e56f-c54c-40f5-8f2c-91fff83465d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Backgrounds">
+      <UniqueIdentifier>{ea7edd7d-7478-42a3-b5cf-3959e19c94ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Backgrounds\Stage1">
+      <UniqueIdentifier>{d9317b9f-7fe6-4062-8442-c206af364b13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Monster">
+      <UniqueIdentifier>{ca7e3749-8dfa-41da-a04a-2a445cd32247}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

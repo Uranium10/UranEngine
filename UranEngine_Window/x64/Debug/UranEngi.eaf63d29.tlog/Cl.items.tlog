@@ -1,3 +1,5 @@
+C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urCrab.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urCrab.obj
+C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urStage1_Shore.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urStage1_Shore.obj
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urAnimation.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urAnimation.obj
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urAnimator.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urAnimator.obj
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urApplication.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urApplication.obj
@@ -18,11 +20,13 @@ C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urScene.cpp;C:\Users\kd
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urSceneManager.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urSceneManager.obj
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urScript.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urScript.obj
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urSpriteRenderer.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urSpriteRenderer.obj
+C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urStage1_1.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urStage1_1.obj
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urTexture.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urTexture.obj
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urTime.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urTime.obj
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urTransform.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urTransform.obj
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_SOURCE\urMath.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urMath.obj
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\urCatScript.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urCatScript.obj
+C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\urCrabScript.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urCrabScript.obj
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\urPlayerScript.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urPlayerScript.obj
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\urPlayScene.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urPlayScene.obj
 C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\urTitleScene.cpp;C:\Users\kdm10\source\repos\UranEngine\UranEngine_Window\x64\Debug\urTitleScene.obj

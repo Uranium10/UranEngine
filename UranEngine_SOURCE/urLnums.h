@@ -12,7 +12,11 @@ namespace ur::enums {
 	};
 	enum class eLayerType {
 		None,
+		FarBackground,
 		Background,
+		AnimatedBackGround,
+		Terrain,
+		AnimatedTerrain,
 		// Tree, character..
 		Animal,
 		Player,

@@ -57,9 +57,13 @@ namespace ur {
 		T* GetComponentByType(enums::eComponentType type) {
 			return dynamic_cast<T*>(mComponents[(UINT)type]);
 		}
+
+		void SetLayer(enums::eLayerType type) { mLayer = type; }
+		enums::eLayerType GetLayer() { return mLayer; }
 	private:
 		void addInitializeTransForm();
 		std::vector<Component*> mComponents;
+		enums::eLayerType mLayer;
 	};
 }
 

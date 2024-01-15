@@ -37,6 +37,10 @@ namespace ur {
 		void Reset();
 		bool IsComplete() { return mbComplete; }
 		void SetAnimator(class Animator* animator) { mAnimator = animator; }
+		void SetIndex(int index){
+			mIndex = min(index, mAnimationSheet.size() - 1);
+		}
+		int GetIndex() { return mIndex; }
 	private:
 		// 재생중인 애니메이터
 		class Animator* mAnimator;

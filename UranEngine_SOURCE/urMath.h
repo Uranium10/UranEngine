@@ -12,6 +12,7 @@ namespace ur::math {
 	struct Vector2 {
 		static Vector2 ZERO;
 		static Vector2 ONE;
+		static Vector2 DOUBLE;
 		static Vector2 LEFT;
 		static Vector2 RIGHT;
 		static Vector2 UP;
@@ -57,6 +58,16 @@ namespace ur::math {
 			Vector2 vv1 = v1.Normalize();
 			Vector2 vv2 = v2.Normalize();
 			return acosf(Dot(vv1, vv2));
+		}
+		static Vector2 VectorOfX(Vector2& v) {
+			return Vector2(v.x, 0.0f);
+		}
+		static Vector2 VectorOfY(Vector2& v) {
+			return Vector2(0.0f, v.y);
+		}
+		static float DistanceToward(Vector2& v1, Vector2& v2) {
+			Vector2 d = v1 - v2;
+			return d.Distance();
 		}
 	};
 }

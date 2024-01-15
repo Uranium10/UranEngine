@@ -33,6 +33,7 @@ namespace ur {
 		static bool GetKeyDown(eKeyCode	code) { return mKeys[(UINT)code].state == eKeyState::Down; }
 		static bool GetKeyUp(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Up; }
 		static bool GetKey(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Pressed; }
+		static bool GetKeyNone(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::None; }
 
 		static Vector2 GetVector() { return mVector; }
 		static bool GetChanged() { return mbChanged; }

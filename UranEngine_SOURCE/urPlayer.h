@@ -15,6 +15,8 @@ namespace ur {
 	private:
 		Animator* getPart() { return GetComponentByType<Animator>(enums::eComponentType::PartAnimator); }
 		void applyAnim(Animator* pa, WST& anim_name, WST& name, UINT frame, float dur);
+		void animationInit();
+		void animationEventInit();
 	};
 }
 

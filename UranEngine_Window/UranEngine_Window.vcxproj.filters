@@ -25,6 +25,9 @@
     <ClInclude Include="urCatScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
+    <ClInclude Include="urCrabScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="urPlayScene.cpp">
@@ -37,6 +40,9 @@
       <Filter>Scripts</Filter>
     </ClCompile>
     <ClCompile Include="urCatScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="urCrabScript.cpp">
       <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>
